@@ -71,3 +71,7 @@
   .chapter-menu { margin-bottom: .55rem; }
   .snippet-guide nav { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
 }
+
+.part-index > summary { cursor: pointer; font-weight: 650; }
+.part-index .chapter-links { margin: .7rem 0 .9rem .65rem; }
+#part-two { margin-top: 4rem; scroll-margin-top: 1.5rem; }

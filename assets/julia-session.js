@@ -1,8 +1,8 @@
 "use strict";
 
 const JuliaSession = (() => {
-  // This Binder example declares Plots in its Julia environment.
-  const build = "https://mybinder.org/build/gh/binder-examples/demo-julia/5eebe6232eefc320e67457e65a3fb2fe5471d6af";
+  // Pin the Binder environment containing the book’s packages (see .binder/Project.toml).
+  const build = "https://mybinder.org/build/gh/ehler-martin/ehler-martin.github.io/97ed1128ff70a4925c6015d59b8340d3505d19aa";
   let session;
   let sessionEnded = false;
   const endedMessage = "This Julia session has ended. Reload the page and execute your definitions again.";
@@ -35,10 +35,20 @@ const JuliaSession = (() => {
     return clientLoading;
   }
 
-  function launch(status) {
+  async function launch(status) {
+    const server = await listenForServer(status);
+    if (server) return server;
+    status("Reconnecting to Binder…");
+    const retry = await listenForServer(status);
+    if (retry) return retry;
+    throw new Error("Binder took too long to start. Click Execute to retry.");
+  }
+
+  function listenForServer(status) {
     return new Promise((resolve, reject) => {
       const events = new EventSource(build);
-      const timer = setTimeout(() => finish(null, "Binder took too long to start. Please retry."), 360000);
+      // A fresh stream can pick up an image that finished building on another Binder server.
+      const timer = setTimeout(() => finish(null), 360000);
       function finish(value, message) {
         clearTimeout(timer);
         events.close();
@@ -49,7 +59,7 @@ const JuliaSession = (() => {
         let data;
         try { data = JSON.parse(event.data); } catch { return; }
         const phase = String(data.phase).toLowerCase();
-        if (phase === "building") status("Binder is preparing the Julia environment with Plots…");
+        if (phase === "building") status("Binder is preparing the book’s Julia packages…");
         if (phase === "launching") status("Binder is starting your Julia notebook server…");
         if (phase === "ready" && data.url && data.token) finish(data);
         if (phase === "failed") finish(null, "Binder could not start this Julia environment. Please retry in a moment.");
@@ -90,8 +100,7 @@ const JuliaSession = (() => {
       if (["dead", "restarting", "autorestarting"].includes(state)) endSession();
     });
     try {
-      await request(kernel, 'ENV["GKSwstype"] = "100"\nif Base.find_package("Primes") === nothing\n' +
-        JuliaPrimesSetup + "\nend", true);
+      await request(kernel, 'ENV["GKSwstype"] = "100";', true);
     } catch (error) {
       kernel.dispose();
       throw error;

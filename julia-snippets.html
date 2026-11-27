@@ -4,13 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf9f5">
-  <meta name="description" content="Execute the Julia examples from Part I of Introduction to Mathematics, from prime factorization to floating-point arithmetic.">
-  <title>Julia Snippets · Part I | Martin Ehler</title>
+  <meta name="description" content="Run the Julia examples from Parts I and II, from prime factorization to numerical linear algebra.">
+  <title>Julia Snippets · Parts I and II | Martin Ehler</title>
   <link rel="icon" type="image/png" href="assets/mark.png">
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/julia-snippets.css">
   <script defer src="assets/julia-session.js"></script>
-  <script defer src="assets/julia-primes.js"></script>
   <script defer src="assets/julia-snippets.js"></script>
 </head>
 <body>
@@ -27,19 +26,33 @@
   </header>
   <main id="main" class="wrap snippets-page" tabindex="-1">
     <header class="snippets-intro">
-      <p class="kicker kicker-line">Part I · Introduction to Mathematics</p>
+      <p class="kicker kicker-line">Parts I and II</p>
       <h1>Julia Snippets</h1>
-      <p>All 32 examples from Part I share one Julia session in this tab. Click <strong>Execute</strong> to run a box. Variables, functions, and packages you define or load are available to every box you run afterward.</p>
+      <p>Explore <a href="#part-one">Part I · Introduction to Mathematics</a> and <a href="#part-two">Part II · Linear Algebra: Structure and Representation</a> in one Julia session. Click <strong>Execute</strong> to run a box. Variables, functions, and packages you define or load are available to every box you run afterward.</p>
       <div id="julia-session-status" role="status" aria-atomic="true"></div>
     </header>
     <div class="snippets-layout">
       <aside class="snippet-guide">
         <details class="chapter-menu" open><summary>Contents</summary>
-        <nav aria-label="Chapters and sections"><div class="chapter-links"><a class="chapter-link" href="#language">1. Mathematical Language</a><a href="#proofs">1.1 Proofs</a><a href="#logic">1.2 Logic</a><a href="#sets">1.3 Sets, relations, and functions</a></div><div class="chapter-links"><a class="chapter-link" href="#algebra">2. Algebraic Structures</a><a href="#groups">2.1 Groups</a><a href="#rings">2.2 Rings</a></div><div class="chapter-links"><a class="chapter-link" href="#numbers">3. Numbers</a><a href="#countable">3.1 Countable number systems</a><a href="#complex">3.2 Real and complex numbers</a><a href="#machine">3.3 Machine numbers</a></div></nav></details>
-        <details class="julia-services"><summary>How execution works</summary><p>Opening this page starts Julia on <a href="https://mybinder.org/">Binder</a>. You can click <strong>Execute</strong> while it starts. Boxes run in the order you click them. After editing a definition, execute it again, then rerun any box whose output you want to update. Reloading the page starts fresh. An internet connection is required.</p></details>
+        <nav aria-label="Chapters and sections"><details class="part-index" open><summary>Part I · Introduction to Mathematics</summary><div class="chapter-links"><a class="chapter-link" href="#language">1. Mathematical Language</a><a href="#proofs">1.1 Proofs</a><a href="#logic">1.2 Logic</a><a href="#sets">1.3 Sets, relations, and functions</a></div><div class="chapter-links"><a class="chapter-link" href="#algebra">2. Algebraic Structures</a><a href="#groups">2.1 Groups</a><a href="#rings">2.2 Rings</a></div><div class="chapter-links"><a class="chapter-link" href="#numbers">3. Numbers</a><a href="#countable">3.1 Countable number systems</a><a href="#complex">3.2 Real and complex numbers</a><a href="#machine">3.3 Machine numbers</a></div></details><details class="part-index" open><summary>Part II · Linear Algebra</summary><div class="chapter-links"><a class="chapter-link" href="#linear-spaces">4. Linear Spaces</a>
+<a href="#vectors-bases">4.1 Vectors and bases</a>
+<a href="#linear-maps">4.2 Linear maps</a>
+<a href="#determinant">4.3 Determinant</a>
+</div>
+<div class="chapter-links"><a class="chapter-link" href="#inner-products">5. Inner Product Spaces</a>
+<a href="#norms-products">5.1 Norms and inner products</a>
+<a href="#self-adjoint">5.3 Eigenbases of self-adjoint maps</a>
+</div>
+<div class="chapter-links"><a class="chapter-link" href="#linear-systems">6. Solving Systems of Linear Equations</a>
+<a href="#elimination">6.1 Elimination</a>
+<a href="#lu-decomposition">6.2 LU-decomposition</a>
+<a href="#least-squares">6.3 Linear least squares</a>
+<a href="#numerical-equations">6.4 Numerical aspects of linear equations</a>
+</div></details></nav></details>
+        <details class="julia-services"><summary>How execution works</summary><p>Opening this page starts Julia on <a href="https://mybinder.org/">Binder</a>. The environment includes <code>Primes</code>, <code>Plots</code>, <code>LinearAlgebra</code>, <code>Combinatorics</code>, and <code>Symbolics</code>. You can click <strong>Execute</strong> while it starts. Boxes run in the order you click them. After editing a definition, execute it again, then rerun any box whose output you want to update. Reloading the page starts fresh. An internet connection is required.</p></details>
         <noscript><p>Enable JavaScript to execute the examples.</p></noscript>
       </aside>
-      <div class="snippet-groups"><section class="snippet-chapter" aria-labelledby="language"><p class="chapter-number">Chapter 1</p><h2 id="language">Mathematical Language</h2>
+      <div class="snippet-groups"><div id="part-one"><section class="snippet-chapter" aria-labelledby="language"><p class="chapter-number">Chapter 1</p><h2 id="language">Mathematical Language</h2>
 <section class="book-section" aria-labelledby="proofs"><h3 id="proofs">1.1 Proofs</h3>
 <article class="snippet" data-snippet="factorization" aria-labelledby="title-factorization">
   <p class="book-reference">§ 1.1 · p. 4</p>
@@ -461,6 +474,424 @@ println(bitstring((2^52-1)*2^-1074))</textarea>
 
 </section>
 </section>
+</div>
+<div id="part-two">
+<section class="snippet-chapter" aria-labelledby="linear-spaces"><p class="chapter-number">Part II · Chapter 4</p><h2 id="linear-spaces">Linear Spaces</h2>
+<section class="book-section" aria-labelledby="vectors-bases"><h3 id="vectors-bases">4.1 Vectors and bases</h3>
+<article class="snippet" data-snippet="vector-scale" aria-labelledby="title-vector-scale">
+  <p class="book-reference">§ 4.1 · p. 80</p>
+  <h4 id="title-vector-scale">Scalar multiplication</h4>
+  <p class="snippet-question">Double each coordinate of the vector <code>v</code>.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Scalar multiplication" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">v = [1;2;3]
+w = [4;5;6]
+
+2*v</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-vector-scale" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-vector-scale" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="vector-add" aria-labelledby="title-vector-add">
+  <p class="book-reference">§ 4.1 · p. 80</p>
+  <h4 id="title-vector-add">Vector addition</h4>
+  <p class="snippet-question">Add the two vectors defined in <a href="#title-vector-scale">the preceding box</a>.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Vector addition" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">v+w</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-vector-add" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-vector-add" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="linear-maps"><h3 id="linear-maps">4.2 Linear maps</h3>
+<article class="snippet" data-snippet="matrix-map" aria-labelledby="title-matrix-map">
+  <p class="book-reference">§ 4.2 · p. 88</p>
+  <h4 id="title-matrix-map">Applying a linear map</h4>
+  <p class="snippet-question">Multiply a three-coordinate vector by a matrix with two rows.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Applying a linear map" class="snippet-source" rows="7" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [ 1 2 3 ;
+      4 5 6 ]
+
+v = [ 1 ;
+      0 ;
+      2 ]
+A*v</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-matrix-map" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-matrix-map" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="null-vector" aria-labelledby="title-null-vector">
+  <p class="book-reference">§ 4.2 · p. 89</p>
+  <h4 id="title-null-vector">A vector in the nullspace</h4>
+  <p class="snippet-question">Where does this matrix send the nonzero vector (1, −1, 1)?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for A vector in the nullspace" class="snippet-source" rows="7" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [ 1 1 0 ;
+      0 1 1 ]
+v = [ 1 ;
+     -1 ;
+      1 ]
+
+A*v</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-null-vector" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-null-vector" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="determinant"><h3 id="determinant">4.3 Determinant</h3>
+<article class="snippet" data-snippet="leibniz" aria-labelledby="title-leibniz">
+  <p class="book-reference">§ 4.3 · p. 98</p>
+  <h4 id="title-leibniz">The determinant as a sum over permutations</h4>
+  <p class="snippet-question">Use <code>Combinatorics</code> to enumerate the permutations and give each product its sign.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The determinant as a sum over permutations" class="snippet-source" rows="11" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using Combinatorics: permutations, parity
+
+function leibniz_form(A)
+    n = size(A,1)
+    sum(
+        (-1)^parity(σ)*prod(A[i, σ[i]] for i in 1:n) for σ in permutations(1:n)
+        )
+end
+
+A = [1 2;3 4]
+leibniz_form(A)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-leibniz" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-leibniz" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="symbolic-det" aria-labelledby="title-symbolic-det">
+  <p class="book-reference">§ 4.3 · p. 100</p>
+  <h4 id="title-symbolic-det">Determinants with symbolic entries</h4>
+  <p class="snippet-question">Run <a href="#title-leibniz">the Leibniz formula</a> first. Then use <code>Symbolics</code> to compute the two determinant polynomials.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Determinants with symbolic entries" class="snippet-source" rows="11" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using Symbolics
+@variables a11 a12 a13 a21 a22 a23 a31 a32 a33
+A = [a11 a12;
+     a21 a22]
+
+B = [a11 a12 a13;
+     a21 a22 a23;
+     a31 a32 a33]
+
+println(leibniz_form(A) )
+println(leibniz_form(B))</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-symbolic-det" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-symbolic-det" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+</section>
+<section class="snippet-chapter" aria-labelledby="inner-products"><p class="chapter-number">Part II · Chapter 5</p><h2 id="inner-products">Inner Product Spaces</h2>
+<section class="book-section" aria-labelledby="norms-products"><h3 id="norms-products">5.1 Norms and inner products</h3>
+<article class="snippet" data-snippet="vector-norms" aria-labelledby="title-vector-norms">
+  <p class="book-reference">§ 5.1 · p. 110</p>
+  <h4 id="title-vector-norms">Three norms of the same vector</h4>
+  <p class="snippet-question">Compare the 1-norm, Euclidean norm, and maximum norm of (3, 4).</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Three norms of the same vector" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using LinearAlgebra
+
+x = [3;4]
+norm(x,1), norm(x), norm(x,Inf)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-vector-norms" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-vector-norms" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="dot-product" aria-labelledby="title-dot-product">
+  <p class="book-reference">§ 5.1 · p. 110</p>
+  <h4 id="title-dot-product">An inner product</h4>
+  <p class="snippet-question">Use <code>dot</code> from <a href="#title-vector-norms">the preceding import</a> to compute the inner product.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for An inner product" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">x = [1;2;3]
+y = [5;1;3]
+dot(x,y)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-dot-product" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-dot-product" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="gram-schmidt" aria-labelledby="title-gram-schmidt">
+  <p class="book-reference">§ 5.1 · p. 114</p>
+  <h4 id="title-gram-schmidt">Gram–Schmidt orthonormalization</h4>
+  <p class="snippet-question">Turn the two columns of the matrix into an orthonormal basis for the same space.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Gram–Schmidt orthonormalization" class="snippet-source" rows="15" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using LinearAlgebra
+
+function myGramSchmidt(B) # vectors are the columns of the matrix B
+    n = size(B,2)
+    W = zeros(size(B))
+    W[:,1] = B[:,1]/norm(B[:,1])
+    for k = 2:n
+        vk = B[:,k]-sum(dot(B[:,k],W[:,j])*W[:,j] for j=1:(k-1))
+        W[:,k] = vk/norm(vk)
+    end
+    return W
+end
+
+M = [1 1;1 0]
+W = myGramSchmidt(M)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-gram-schmidt" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-gram-schmidt" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="self-adjoint"><h3 id="self-adjoint">5.3 Eigenbases of self-adjoint maps</h3>
+<article class="snippet" data-snippet="eigen-residuals" aria-labelledby="title-eigen-residuals">
+  <p class="book-reference">§ 5.3 · p. 125</p>
+  <h4 id="title-eigen-residuals">Checking three eigenvectors</h4>
+  <p class="snippet-question">With <a href="#title-vector-norms"><code>LinearAlgebra</code></a> loaded, measure the residuals for the eigenvalues 2, 2, and 4.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Checking three eigenvectors" class="snippet-source" rows="5" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [2 0 0;0 3 1;0 1 3]
+w1 = [1; 0; 0]
+w2 = [0; 1/sqrt(2); -1/sqrt(2)]
+w3 = [0; 1/sqrt(2); 1/sqrt(2)]
+norm(A*w1 - 2*w1), norm(A*w2 - 2*w2), norm(A*w3 - 4*w3)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-eigen-residuals" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-eigen-residuals" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+</section>
+<section class="snippet-chapter" aria-labelledby="linear-systems"><p class="chapter-number">Part II · Chapter 6</p><h2 id="linear-systems">Solving Systems of Linear Equations</h2>
+<section class="book-section" aria-labelledby="elimination"><h3 id="elimination">6.1 Elimination</h3>
+<article class="snippet" data-snippet="two-equations" aria-labelledby="title-two-equations">
+  <p class="book-reference">§ 6.1 · p. 134</p>
+  <h4 id="title-two-equations">Checking a solution in two variables</h4>
+  <p class="snippet-question">Multiply the proposed solution by the matrix to recover the right-hand side.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Checking a solution in two variables" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [2 4;6 9]
+x = [9/2;-2]
+A*x</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-two-equations" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-two-equations" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="three-equations" aria-labelledby="title-three-equations">
+  <p class="book-reference">§ 6.1 · p. 135</p>
+  <h4 id="title-three-equations">Checking a solution in three variables</h4>
+  <p class="snippet-question">Verify the solution obtained by elimination.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Checking a solution in three variables" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [2 4 -2;4 9 -3;-2 -3 7]
+x = [0;1/2;1/2]
+A*x</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-three-equations" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-three-equations" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="homogeneous" aria-labelledby="title-homogeneous">
+  <p class="book-reference">§ 6.1 · p. 136</p>
+  <h4 id="title-homogeneous">A solution of a homogeneous system</h4>
+  <p class="snippet-question">Compute the image of the proposed null vector.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for A solution of a homogeneous system" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [2 4 1;4 9 3;-2 -1 2]
+x = [3/2;-1;1]
+A*x</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-homogeneous" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-homogeneous" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="affine-family" aria-labelledby="title-affine-family">
+  <p class="book-reference">§ 6.1 · p. 137</p>
+  <h4 id="title-affine-family">A family of solutions</h4>
+  <p class="snippet-question">Vary the coefficients 7 and 9. Which right-hand side do all these vectors share?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for A family of solutions" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [2 4 1 1;4 9 3 1]
+x = [-3/2;1;0;0]+7*[3/2;-1;1;0]+9*[-5/2;1;0;1]
+A*x</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-affine-family" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-affine-family" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="matrix-inverse" aria-labelledby="title-matrix-inverse">
+  <p class="book-reference">§ 6.1 · p. 139</p>
+  <h4 id="title-matrix-inverse">The inverse of a matrix</h4>
+  <p class="snippet-question">Compute the inverse of the four-by-four matrix from the elimination example.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The inverse of a matrix" class="snippet-source" rows="2" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [1 1 2 2;1 2 1 1;0 0 1 1;0 0 1 2]
+inv(A)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-matrix-inverse" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-matrix-inverse" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="lu-decomposition"><h3 id="lu-decomposition">6.2 LU-decomposition</h3>
+<article class="snippet" data-snippet="forward-sub" aria-labelledby="title-forward-sub">
+  <p class="book-reference">§ 6.2 · p. 140</p>
+  <h4 id="title-forward-sub">Forward substitution</h4>
+  <p class="snippet-question">Define <code>myL</code> for a lower triangular matrix with ones on the diagonal. The example on <a href="#title-small-pivot">p. 161</a> uses it.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Forward substitution" class="snippet-source" rows="8" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myL(L,b)
+    n = length(b)
+    y = copy(b)
+    for k = 2:n
+        y[k] = b[k]-sum(L[k,j]*y[j] for j in 1:k-1)
+    end
+    return y
+end</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-forward-sub" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-forward-sub" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="back-sub" aria-labelledby="title-back-sub">
+  <p class="book-reference">§ 6.2 · p. 140</p>
+  <h4 id="title-back-sub">Backward substitution</h4>
+  <p class="snippet-question">Define <code>myU</code> to solve an upper triangular system, starting with its last row.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Backward substitution" class="snippet-source" rows="8" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myU(U,y)
+    n = length(y)
+    x = copy(y) # zeros(n)
+    for k = n:-1:1
+        x[k] = (y[k]- sum(U[k,j]*x[j] for j in k+1:n; init = 0))/U[k,k]
+    end
+    return x
+end</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-back-sub" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-back-sub" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="lu" aria-labelledby="title-lu">
+  <p class="book-reference">§ 6.2 · p. 144</p>
+  <h4 id="title-lu">LU without pivoting</h4>
+  <p class="snippet-question">Factor the matrix into a unit lower triangular matrix and an upper triangular matrix.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for LU without pivoting" class="snippet-source" rows="14" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using LinearAlgebra:tril,I,triu
+
+function myLU(A0)
+    n = size(A0,1)
+    A = copy(A0)
+    for k in 1:n-1
+        A[k+1:n,k] /= A[k,k]   # from now on: A[k+1:n,k] = l
+        A[k+1:n,k+1:n] = A[k+1:n,k+1:n]-A[k+1:n,k]*transpose(A[k,k+1:n])
+    end
+    return tril(A,-1)+I, triu(A)
+end
+
+A = [2 4 -2;4 9 -3;-2 -3 7]
+L,U = myLU(A)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-lu" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-lu" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="lu-pivot" aria-labelledby="title-lu-pivot">
+  <p class="book-reference">§ 6.2 · p. 146</p>
+  <h4 id="title-lu-pivot">LU with partial pivoting</h4>
+  <p class="snippet-question">Using the <a href="#title-lu">triangular matrix imports from p. 144</a>, compute the factors and the row permutation.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for LU with partial pivoting" class="snippet-source" rows="16" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myLUpivot(A0)
+    n = size(A0,1)
+    p = [1:n;]
+    A = copy(A0)
+    for k in 1:n-1
+        mptr = argmax(abs.(A[p[k:n],k]))
+        p[k],p[k-1+mptr] = p[k-1+mptr],p[k]
+        A[p[k+1:n],k] /= A[p[k],k]
+        A[p[k+1:n],k+1:n] .= A[p[k+1:n],k+1:n]-A[p[k+1:n],k]*transpose(A[p[k],k+1:n])
+    end
+    return tril(A[p,:],-1)+I, triu(A[p,:]), p
+end
+
+A = [2. 4 -2;4 9 -3;-2 -3 7]
+L,U,p = myLUpivot(A)
+@show L U p;</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-lu-pivot" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-lu-pivot" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="least-squares"><h3 id="least-squares">6.3 Linear least squares</h3>
+<article class="snippet" data-snippet="cholesky" aria-labelledby="title-cholesky">
+  <p class="book-reference">§ 6.3 · p. 150</p>
+  <h4 id="title-cholesky">Cholesky factorization</h4>
+  <p class="snippet-question">Construct the lower triangular factor of a positive definite matrix.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Cholesky factorization" class="snippet-source" rows="15" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myCholesky(A)
+    n = size(A,1)
+    L = zeros(n,n)
+    if eltype(A) == ComplexF64     L = zeros(ComplexF64,n,n) end
+    for j in 1:n
+        L[j,j] = sqrt( A[j,j] - sum( abs.(L[j,1:j-1]).^2 ) )
+        for i in j+1:n
+            L[i,j] = ( A[i,j] - sum( L[i,1:j-1].*conj.(L[j,1:j-1])) ) / L[j,j]
+        end
+    end
+    return L
+end
+
+A = [1 5 3 9; 5 26 16 47; 3 16 14 35; 9 47   35 95]
+L = myCholesky(A)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-cholesky" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-cholesky" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="householder" aria-labelledby="title-householder">
+  <p class="book-reference">§ 6.3 · p. 156</p>
+  <h4 id="title-householder">QR with Householder reflections</h4>
+  <p class="snippet-question">With <a href="#title-vector-norms"><code>LinearAlgebra</code></a> loaded, build successive reflections and display the two factors.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for QR with Householder reflections" class="snippet-source" rows="20" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myQR(A)
+    m, n = size(A)
+    Q = Matrix{Float64}(I,m,m)
+    if eltype(A) == ComplexF64 Q = Matrix{ComplexF64}(I,m,m) end
+    R = copy(A)
+    for k = 1:n
+        a = R[k:m,k]
+        v = copy(a)
+        v[1] += sign(a[1])*norm(a)
+        v = v/norm(v)
+        Q[k:m,1:m] .= Q[k:m,1:m].-2*v*v&#x27;*Q[k:m,1:m]
+        R[k:m,k:n] .= R[k:m,k:n].-2*v*v&#x27;*R[k:m,k:n]
+    end
+    return Q[1:m,1:m]&#x27;, triu(R[1:m,1:n])
+end
+
+A = [-2. -2 -2; -2 -1 -1; 1 0 -1]
+Q,R = myQR(A)
+display(Q)
+display(R)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-householder" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-householder" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="numerical-equations"><h3 id="numerical-equations">6.4 Numerical aspects of linear equations</h3>
+<article class="snippet" data-snippet="small-pivot" aria-labelledby="title-small-pivot">
+  <p class="book-reference">§ 6.4 · p. 161</p>
+  <h4 id="title-small-pivot">What happens with a small first pivot?</h4>
+  <p class="snippet-question">Run <a href="#title-forward-sub"><code>myL</code></a>, <a href="#title-back-sub"><code>myU</code></a>, and <a href="#title-lu"><code>myLU</code></a> first. Compare the right-hand sides obtained from the computed and exact solutions.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for What happens with a small first pivot?" class="snippet-source" rows="15" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">ε = 2^-55
+A = [ε 1;1 1]
+b = [1.0;2]
+L,U = myLU(A)
+
+y = myL(L,b)
+x = myU(U,y)
+
+@show L == [1 0;1/ε 1];
+@show U == [ε 1;0 -1/ε];
+@show y == [1;-1/ε]
+@show x == [0;1];
+@show A*x
+x_exact = 1/(1-ε)*[1;1-2*ε]
+@show A*x_exact;</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-small-pivot" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-small-pivot" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="small-pivot-swap" aria-labelledby="title-small-pivot-swap">
+  <p class="book-reference">§ 6.4 · p. 162</p>
+  <h4 id="title-small-pivot-swap">The same system with a row swap</h4>
+  <p class="snippet-question">Run <a href="#title-lu-pivot"><code>myLUpivot</code></a> and <a href="#title-small-pivot">the preceding system</a> first. How does pivoting change the computed solution?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The same system with a row swap" class="snippet-source" rows="6" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">L,U,p = myLUpivot(A)  # L,U,p = lu(A)
+@show L == [1 0;ε 1]
+@show U == [1 1;0 1]
+@show y = myL(L,b[p])            # y = L\b[p]
+@show x = myU(U,y)            # x = U\y
+@show x_ε = [1/(1-ε) ; (1-2ε)/(1-ε)];                  # is rounded to (1,1)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-small-pivot-swap" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-small-pivot-swap" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+</section>
+</div>
       </div>
     </div>
   </main>
