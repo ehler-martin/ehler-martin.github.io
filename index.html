@@ -49,8 +49,11 @@
     </div>
     <figure class="home-plate" id="geometry">
       <div class="figure-top">
-        <span class="figure-title">Illustrations</span>
-        <div class="curve-choices" role="group" aria-label="Choose a mathematical illustration" hidden>
+        <span class="figure-title">
+          <span class="curves-heading">Sampling curves</span>
+          <span class="geometry-heading" inert>Optimal configurations</span>
+        </span>
+        <div class="curve-choices" role="group" aria-label="Choose a mathematical view" hidden>
           <button type="button" data-degree="2" aria-pressed="true">2-design</button>
           <button type="button" data-degree="3" aria-pressed="false">3-design</button>
           <button type="button" data-view="geometry" aria-pressed="false">Lines &amp; planes</button>
@@ -79,10 +82,7 @@
             <p class="geometry-status" role="status">Loading the 3D model…</p>
           </div>
           <div class="geometry-tools">
-            <button type="button" class="geometry-spin" aria-pressed="false" disabled>Auto-rotate</button>
-            <button type="button" class="geometry-reset" disabled>Reset view</button>
-            <button type="button" class="geometry-fullscreen" disabled>Full screen</button>
-            <a class="geometry-download" href="assets/geometry/six-lines-six-planes.glb" download>3D model</a>
+            <button type="button" class="geometry-spin" disabled>Pause rotation</button>
           </div>
         </div>
       </div>

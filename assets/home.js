@@ -227,6 +227,8 @@
       choice.setAttribute("aria-pressed", String(choice === button));
     }
     geometryView.inert = !geometry;
+    figure.querySelector(".curves-heading").inert = geometry;
+    figure.querySelector(".geometry-heading").inert = !geometry;
     figure.querySelector(".curve-view").inert = geometry;
     const selected = geometry ? "geometry" : button.dataset.degree;
     for (const caption of figure.querySelectorAll("[data-caption]")) {
@@ -238,7 +240,7 @@
         .then(viewer => { geometryViewer = viewer; viewer.setVisible(!geometryView.inert); })
         .catch(() => {
           geometryView.querySelector(".geometry-status").textContent =
-            "The interactive view is unavailable. You can download the 3D model below.";
+            "The 3D view could not be loaded.";
         });
     }
     geometryViewer?.setVisible(geometry);

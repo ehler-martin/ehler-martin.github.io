@@ -7,8 +7,6 @@ export async function createViewer(view) {
   const stage = view.querySelector(".geometry-stage");
   const status = view.querySelector(".geometry-status");
   const spin = view.querySelector(".geometry-spin");
-  const reset = view.querySelector(".geometry-reset");
-  const full = view.querySelector(".geometry-fullscreen");
   const response = await fetch(new URL("./six-lines-six-planes.glb", import.meta.url));
   if (!response.ok) throw new Error("Unable to load the model");
   const model = createModel(await response.arrayBuffer());
@@ -33,7 +31,7 @@ export async function createViewer(view) {
   controls.maxDistance = 16;
   controls.rotateSpeed = 0.8;
   controls.autoRotateSpeed = 0.8;
-  controls.saveState();
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let visible = !view.inert;
   let inViewport = true;
   let frame;
@@ -62,22 +60,17 @@ export async function createViewer(view) {
   }
   function setSpin(enabled) {
     controls.autoRotate = enabled;
-    spin.setAttribute("aria-pressed", String(enabled));
-    spin.textContent = enabled ? "Pause rotation" : "Auto-rotate";
+    spin.textContent = enabled ? "Pause rotation" : "Resume rotation";
     syncAnimation();
   }
   controls.addEventListener("change", render);
-  controls.addEventListener("start", () => setSpin(false));
   canvas.addEventListener("pointerdown", () => canvas.focus({ preventScroll: true }));
-  reset.addEventListener("click", () => { setSpin(false); controls.reset(); });
   spin.addEventListener("click", () => setSpin(!controls.autoRotate));
   canvas.addEventListener("keydown", event => {
-    const keys = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "+", "=", "-", "r"];
-    const pressed = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+    const keys = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "+", "=", "-"];
+    const pressed = event.key;
     if (!keys.includes(pressed)) return;
     event.preventDefault();
-    setSpin(false);
-    if (pressed === "r") { controls.reset(); return; }
     const turn = new THREE.Quaternion().setFromUnitVectors(camera.up, new THREE.Vector3(0, 1, 0));
     const offset = camera.position.clone().sub(controls.target).applyQuaternion(turn);
     const sphere = new THREE.Spherical().setFromVector3(offset);
@@ -94,19 +87,6 @@ export async function createViewer(view) {
     camera.position.copy(controls.target).add(offset.setFromSpherical(sphere).applyQuaternion(turn.invert()));
     controls.update();
   });
-  if (document.fullscreenEnabled) {
-    full.disabled = false;
-    full.addEventListener("click", async () => {
-      try {
-        if (document.fullscreenElement) await document.exitFullscreen();
-        else await view.requestFullscreen();
-      } catch { full.disabled = true; }
-    });
-    document.addEventListener("fullscreenchange", () => {
-      full.textContent = document.fullscreenElement === view ? "Exit full screen" : "Full screen";
-      resize();
-    });
-  }
   new ResizeObserver(resize).observe(stage);
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(([entry]) => {
@@ -116,13 +96,17 @@ export async function createViewer(view) {
   }
   document.addEventListener("visibilitychange", syncAnimation);
   status.hidden = true;
-  reset.disabled = spin.disabled = false;
+  spin.disabled = false;
+  setSpin(!reducedMotion.matches);
+  reducedMotion.addEventListener("change", () => {
+    if (reducedMotion.matches) setSpin(false);
+  });
   resize();
   return {
     setVisible(value) {
       visible = value;
       if (value) resize();
-      else setSpin(false);
+      syncAnimation();
     }
   };
 }
