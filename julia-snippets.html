@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf9f5">
-  <meta name="description" content="Run the Julia examples from Parts I and II, from prime factorization to numerical linear algebra.">
-  <title>Julia Snippets · Parts I and II | Martin Ehler</title>
+  <meta name="description" content="Run the Julia examples from Parts I–III, covering mathematics, linear algebra, and analysis.">
+  <title>Julia Snippets · Parts I–III | Martin Ehler</title>
   <link rel="icon" type="image/png" href="assets/mark.png">
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/julia-snippets.css">
@@ -26,9 +26,9 @@
   </header>
   <main id="main" class="wrap snippets-page" tabindex="-1">
     <header class="snippets-intro">
-      <p class="kicker kicker-line">Parts I and II</p>
+      <p class="kicker kicker-line">Parts I–III</p>
       <h1>Julia Snippets</h1>
-      <p>Explore <a href="#part-one">Part I · Introduction to Mathematics</a> and <a href="#part-two">Part II · Linear Algebra: Structure and Representation</a> in one Julia session. Click <strong>Execute</strong> to run a box. Variables, functions, and packages you define or load are available to every box you run afterward.</p>
+      <p>Explore <a href="#part-one">Part I · Introduction to Mathematics</a>, <a href="#part-two">Part II · Linear Algebra: Structure and Representation</a>, and <a href="#part-three">Part III · Analysis: Limits and Local Linear Approximation</a> in one Julia session. Click <strong>Execute</strong> to run a box. Variables, functions, and packages you define or load are available to every box you run afterward.</p>
       <div id="julia-session-status" role="status" aria-atomic="true"></div>
     </header>
     <div class="snippets-layout">
@@ -48,8 +48,23 @@
 <a href="#lu-decomposition">6.2 LU-decomposition</a>
 <a href="#least-squares">6.3 Linear least squares</a>
 <a href="#numerical-equations">6.4 Numerical aspects of linear equations</a>
+</div></details><details class="part-index" open><summary>Part III · Analysis</summary><div class="chapter-links"><a class="chapter-link" href="#convergence-continuity">7. Convergence and Continuity</a>
+<a href="#metric-spaces">7.1 Metric spaces</a>
+<a href="#continuity-fixed-points">7.4 Continuity and Banach’s fixed point theorem</a>
+</div>
+<div class="chapter-links"><a class="chapter-link" href="#series-functions">8. Series and Elementary Functions</a>
+<a href="#series">8.1 Series</a>
+<a href="#exponential">8.2 Exponential function</a>
+<a href="#logarithms">8.3 Logarithm and general exponents</a>
+<a href="#trigonometric">8.4 Trigonometric functions</a>
+</div>
+<div class="chapter-links"><a class="chapter-link" href="#differentiation-integration">9. Differentiation and Integration</a>
+<a href="#differentiation">9.1 Differentiation</a>
+<a href="#local-extrema">9.2 Local extrema</a>
+<a href="#riemann-integration">9.3 Riemann integration</a>
+<a href="#taylor-expansion">9.4 Taylor expansion</a>
 </div></details></nav></details>
-        <details class="julia-services"><summary>How execution works</summary><p>Opening this page starts Julia on <a href="https://mybinder.org/">Binder</a>. The environment includes <code>Primes</code>, <code>Plots</code>, <code>LinearAlgebra</code>, <code>Combinatorics</code>, and <code>Symbolics</code>. You can click <strong>Execute</strong> while it starts. Boxes run in the order you click them. After editing a definition, execute it again, then rerun any box whose output you want to update. Reloading the page starts fresh. An internet connection is required.</p></details>
+        <details class="julia-services"><summary>How execution works</summary><p>Opening this page starts Julia on <a href="https://mybinder.org/">Binder</a>. The environment includes <code>Primes</code>, <code>Plots</code>, <code>LinearAlgebra</code>, <code>Combinatorics</code>, <code>Symbolics</code>, and <code>Calculus</code>. You can click <strong>Execute</strong> while it starts. Boxes run in the order you click them. After editing a definition, execute it again, then rerun any box whose output you want to update. Reloading the page starts fresh. An internet connection is required.</p></details>
         <noscript><p>Enable JavaScript to execute the examples.</p></noscript>
       </aside>
       <div class="snippet-groups"><div id="part-one"><section class="snippet-chapter" aria-labelledby="language"><p class="chapter-number">Chapter 1</p><h2 id="language">Mathematical Language</h2>
@@ -887,6 +902,343 @@ x_exact = 1/(1-ε)*[1;1-2*ε]
 @show x_ε = [1/(1-ε) ; (1-2ε)/(1-ε)];                  # is rounded to (1,1)</textarea>
     <div class="cell-actions"><button type="button" class="execute" aria-controls="out-small-pivot-swap" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
     <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-small-pivot-swap" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+</section>
+</div>
+<div id="part-three">
+<section class="snippet-chapter" aria-labelledby="convergence-continuity"><p class="chapter-number">Part III · Chapter 7</p><h2 id="convergence-continuity">Convergence and Continuity</h2>
+<p>Run <a href="#title-sequence-limit">the first box</a> to load <code>Plots</code> for the graphs in Part III.</p>
+<section class="book-section" aria-labelledby="metric-spaces"><h3 id="metric-spaces">7.1 Metric spaces</h3>
+<article class="snippet" data-snippet="sequence-limit" aria-labelledby="title-sequence-limit">
+  <p class="book-reference">§ 7.1 · p. 168</p>
+  <h4 id="title-sequence-limit">A sequence approaching two</h4>
+  <p class="snippet-question">The points are the terms of the sequence. Compare their distance from 2 with the upper margin.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for A sequence approaching two" class="snippet-source" rows="7" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using Plots
+
+a = n -&gt; 2+1/(n+1)
+M = 1:40
+scatter(M,a.(M),ylimits=[1.8,2.8],label=&quot;&quot;)
+plot!(x-&gt;2+2/(x+1),label=&quot;margins&quot;)
+plot!(x-&gt;2,color=&quot;red&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-sequence-limit" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-sequence-limit" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="continuity-fixed-points"><h3 id="continuity-fixed-points">7.4 Continuity and Banach’s fixed point theorem</h3>
+<article class="snippet" data-snippet="bisection" aria-labelledby="title-bisection">
+  <p class="book-reference">§ 7.4 · p. 185</p>
+  <h4 id="title-bisection">Approximating √2 by bisection</h4>
+  <p class="snippet-question">Follow the midpoints as the interval containing the positive zero of x² − 2 shrinks.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Approximating √2 by bisection" class="snippet-source" rows="19" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myBisection(f,a,b; tol=1e-4,maxiter=50)
+    x = Vector{Float64}(undef, maxiter)
+    for k in 1:maxiter
+        x[k] = (a+b)/2
+        if abs(a-b)&lt;tol || abs(f(x[k])) &lt; 2*eps()   # stopping criteria
+            return x[1:k]
+        end
+        if f(a)*f(x[k])&lt;0
+            b = x[k]
+        else
+            a = x[k]
+        end
+    end
+    println(&quot;no convergence&quot;)
+    return x
+end
+
+f(z)=z^2-2
+myBisection(f,0,2)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-bisection" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-bisection" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+</section>
+<section class="snippet-chapter" aria-labelledby="series-functions"><p class="chapter-number">Part III · Chapter 8</p><h2 id="series-functions">Series and Elementary Functions</h2>
+<section class="book-section" aria-labelledby="series"><h3 id="series">8.1 Series</h3>
+<article class="snippet" data-snippet="harmonic-sums" aria-labelledby="title-harmonic-sums">
+  <p class="book-reference">§ 8.1 · p. 194</p>
+  <h4 id="title-harmonic-sums">Partial sums of the harmonic series</h4>
+  <p class="snippet-question">Plot selected partial sums. How much does the sum increase as you move from 1,000 terms to 10,000?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Partial sums of the harmonic series" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">S(n) = sum(1/k for k in 1:n)
+n = 1:100:10000
+scatter(n,S.(n), label=&quot;S(n)&quot;, xlabel=&quot;n&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-harmonic-sums" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-harmonic-sums" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="decimal-nines" aria-labelledby="title-decimal-nines">
+  <p class="book-reference">§ 8.1 · p. 197</p>
+  <h4 id="title-decimal-nines">How many nines round to one?</h4>
+  <p class="snippet-question">Compare the floating-point sums for 16 and 17 decimal places.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for How many nines round to one?" class="snippet-source" rows="2" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">decimals(a) = sum(a[n]*0.1^n for n=1:length(a))
+fill(9, 3), decimals(fill(9,16)), decimals(fill(9,17))</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-decimal-nines" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-decimal-nines" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="alternating-harmonic" aria-labelledby="title-alternating-harmonic">
+  <p class="book-reference">§ 8.1 · p. 199</p>
+  <h4 id="title-alternating-harmonic">Alternating harmonic sums</h4>
+  <p class="snippet-question">Watch the even and odd partial sums approach the same limit from opposite sides.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Alternating harmonic sums" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">alterHarmonic(n) = sum((-1)^k/k for k=1:n)
+M = 1:100
+scatter(M,alterHarmonic.(M))</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-alternating-harmonic" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-alternating-harmonic" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="exponential"><h3 id="exponential">8.2 Exponential function</h3>
+<article class="snippet" data-snippet="exp-truncation" aria-labelledby="title-exp-truncation">
+  <p class="book-reference">§ 8.2 · p. 201</p>
+  <h4 id="title-exp-truncation">Bounding the exponential remainder</h4>
+  <p class="snippet-question">Trace the degree-four approximation and its two remainder bounds. Change N to see how the interval and the bounds change.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Bounding the exponential remainder" class="snippet-source" rows="6" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">myExp(x,N) = sum(x^n/factorial(big(n)) for n=0:N)
+R = (x,N) -&gt; 2*abs(x)^(N+1)/factorial(big(N+1))
+N = 4
+plot(x-&gt;myExp(x,N),xlimits=[-(N+2)/2,(N+2)/2],label=&quot;truncated exp&quot;)
+plot!(x-&gt;myExp(x,N)+R(x,N),color=&quot;red&quot;,label=&quot;margins&quot;)
+plot!(x-&gt;myExp(x,N)-R(x,N),color=&quot;red&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-exp-truncation" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-exp-truncation" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="logarithms"><h3 id="logarithms">8.3 Logarithm and general exponents</h3>
+<article class="snippet" data-snippet="log-harmonic" aria-labelledby="title-log-harmonic">
+  <p class="book-reference">§ 8.3 · p. 206</p>
+  <h4 id="title-log-harmonic">Harmonic sums on a logarithmic axis</h4>
+  <p class="snippet-question">Compare this graph with the <a href="#title-harmonic-sums">earlier partial sums</a>. Equal horizontal steps now represent equal ratios in n.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Harmonic sums on a logarithmic axis" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">S(n) = sum(1/k for k in 1:n)
+n = 100:100:10000
+scatter(n,S.(n), xaxis=:log, label=&quot;S(n)&quot;, xlabel=&quot;n&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-log-harmonic" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-log-harmonic" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="trigonometric"><h3 id="trigonometric">8.4 Trigonometric functions</h3>
+<article class="snippet" data-snippet="sin-cos" aria-labelledby="title-sin-cos">
+  <p class="book-reference">§ 8.4 · p. 211</p>
+  <h4 id="title-sin-cos">Sine and cosine over one period</h4>
+  <p class="snippet-question">Compare the two functions on the interval from 0 to 2π.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Sine and cosine over one period" class="snippet-source" rows="2" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">plot(sin,xlimits=[0,2π],label=&quot;sin&quot;)
+plot!(cos,label=&quot;cos&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-sin-cos" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-sin-cos" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="trig-limits" aria-labelledby="title-trig-limits">
+  <p class="book-reference">§ 8.4 · p. 213</p>
+  <h4 id="title-trig-limits">Two limits at zero</h4>
+  <p class="snippet-question">The two quotients are undefined at zero. The marked points show the values approached from either side.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Two limits at zero" class="snippet-source" rows="6" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">f(h) = (cos(h)-1)/h
+g(h) = sin(h)/h
+
+scatter([0,0],[1,0])
+plot!(f,label=&quot;f&quot;,xlimits=[-4,4])
+plot!(g,label=&quot;g&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-trig-limits" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-trig-limits" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+</section>
+<section class="snippet-chapter" aria-labelledby="differentiation-integration"><p class="chapter-number">Part III · Chapter 9</p><h2 id="differentiation-integration">Differentiation and Integration</h2>
+<section class="book-section" aria-labelledby="differentiation"><h3 id="differentiation">9.1 Differentiation</h3>
+<article class="snippet" data-snippet="arcsine" aria-labelledby="title-arcsine">
+  <p class="book-reference">§ 9.1 · p. 222</p>
+  <h4 id="title-arcsine">The inverse sine</h4>
+  <p class="snippet-question">Plot the inverse of sine restricted to [−π/2, π/2].</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The inverse sine" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">plot(asin,label=&quot;arcsin&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-arcsine" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-arcsine" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="arccosine" aria-labelledby="title-arccosine">
+  <p class="book-reference">§ 9.1 · p. 222</p>
+  <h4 id="title-arccosine">The inverse cosine</h4>
+  <p class="snippet-question">Compare the inverse cosine with the <a href="#title-arcsine">inverse sine</a> on their common domain.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The inverse cosine" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">plot(acos,label=&quot;arccos&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-arccosine" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-arccosine" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="local-extrema"><h3 id="local-extrema">9.2 Local extrema</h3>
+<article class="snippet" data-snippet="cubic-extrema" aria-labelledby="title-cubic-extrema">
+  <p class="book-reference">§ 9.2 · p. 229</p>
+  <h4 id="title-cubic-extrema">The two extrema of a cubic</h4>
+  <p class="snippet-question">Locate the maximum and minimum of x − x³ at its two stationary points.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The two extrema of a cubic" class="snippet-source" rows="6" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">f(x) = x-x^3
+plot(f,xlimits=[-3/2,3/2],label=&quot;f(x)=x-x^3&quot;)
+x1 = 1/sqrt(3)
+x2 = -1/sqrt(3)
+scatter!([x1],[f(x1)],label=&quot;local maximum&quot;)
+scatter!([x2],[f(x2)],label=&quot;local minimum&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-cubic-extrema" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-cubic-extrema" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="riemann-integration"><h3 id="riemann-integration">9.3 Riemann integration</h3>
+<article class="snippet" data-snippet="midpoint-rule" aria-labelledby="title-midpoint-rule">
+  <p class="book-reference">§ 9.3 · p. 240</p>
+  <h4 id="title-midpoint-rule">The composite midpoint rule</h4>
+  <p class="snippet-question">Define the midpoint rule. Then try <code>myMidPointRule(x -> x^2, 0, 1)</code> and compare the result with 1/3.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The composite midpoint rule" class="snippet-source" rows="6" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myMidPointRule(f,a,b; n=100)
+    x = range(a,b,n+1)
+    h = (b-a)/n
+    y = x .+ h/2
+    return sum(f(y[k]) for k=1:n)*h
+end</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-midpoint-rule" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-midpoint-rule" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="trapezoid-rule" aria-labelledby="title-trapezoid-rule">
+  <p class="book-reference">§ 9.3 · p. 240</p>
+  <h4 id="title-trapezoid-rule">The composite trapezoidal rule</h4>
+  <p class="snippet-question">Define the trapezoidal rule. Evaluate it on the same interval and quadratic as the <a href="#title-midpoint-rule">midpoint rule</a>.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The composite trapezoidal rule" class="snippet-source" rows="5" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myTrapezoidalRule(f,a,b; n=100)
+    x = range(a,b,n+1)
+    h = (b-a)/n
+    return sum( (f(x[k])+f(x[k+1]))/2 for k=1:n)*h
+end</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-trapezoid-rule" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-trapezoid-rule" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="taylor-expansion"><h3 id="taylor-expansion">9.4 Taylor expansion</h3>
+<article class="snippet" data-snippet="taylor-exp" aria-labelledby="title-taylor-exp">
+  <p class="book-reference">§ 9.4 · p. 244</p>
+  <h4 id="title-taylor-exp">Two Taylor polynomials for the exponential</h4>
+  <p class="snippet-question">Use <code>Calculus</code> to approximate the first two derivatives at x₀ = 3. Compare the tangent line and the quadratic with the exponential.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Two Taylor polynomials for the exponential" class="snippet-source" rows="21" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using Calculus, Plots
+
+function myTaylor(f,x0::Float64;n=2)
+    f1 = Calculus.derivative(f)
+    if n == 1
+        return x -&gt; f(x0) + f1(x0)*(x-x0)
+    end
+    f2 = Calculus.second_derivative(f)
+    if n == 2
+        return x -&gt; f(x0) + f1(x0)*(x-x0)+f2(x0)*(x-x0)^2 /2
+    end
+end
+
+f(x) = exp(x)
+x0 = 3.
+T1f = myTaylor(f,x0;n=1)
+T2f = myTaylor(f,x0;n=2)
+
+plot(f,xlimits=[1,5],label=&quot;f&quot;)
+plot!(T1f,label=&quot;Taylor order 1&quot;)
+plot!(T2f,label=&quot;Taylor order 2&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-taylor-exp" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-taylor-exp" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="newton" aria-labelledby="title-newton">
+  <p class="book-reference">§ 9.4 · p. 248</p>
+  <h4 id="title-newton">Newton’s method for √2</h4>
+  <p class="snippet-question">Compare Newton’s iterates with the <a href="#title-bisection">bisection iterates</a> for the same equation.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Newton’s method for √2" class="snippet-source" rows="13" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myNewton(f, ∂f, x0; tol=1e-5, maxiter=50)
+    x = Vector{Float64}(undef,maxiter)
+    x[1] = copy(x0)
+    for k in 1:maxiter-1
+        if abs(f(x[k]))&lt;tol return x[1:k] end
+        x[k+1] = x[k]-f(x[k])/∂f(x[k])
+    end
+    println(&quot;no convergence&quot;)
+    return x
+end
+
+f(x) = x^2-2
+myNewton(f,x-&gt;2x,1;tol=4eps())</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-newton" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-newton" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="spiral" aria-labelledby="title-spiral">
+  <p class="book-reference">§ 9.4 · p. 248</p>
+  <h4 id="title-spiral">A parametrized spiral</h4>
+  <p class="snippet-question">Plot the two coordinates of a curve whose radius grows as it winds through three turns.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for A parametrized spiral" class="snippet-source" rows="9" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function myCurvePlot(f;n=1000)
+    f1 = t-&gt;f(t)[1]
+    f2 = t-&gt;f(t)[2]
+    t = range(0,1,n)
+    plot(f1.(t),f2.(t),lw=2)
+end
+
+f(t) = [t*cos(6*π*t), t*sin(6*π*t)]
+myCurvePlot(f)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-spiral" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-spiral" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="spiral-tangent" aria-labelledby="title-spiral-tangent">
+  <p class="book-reference">§ 9.4 · p. 250</p>
+  <h4 id="title-spiral-tangent">The affine approximation to a spiral</h4>
+  <p class="snippet-question">Differentiate the two coordinates with <code>Calculus</code>. The second curve shows the tangent near the marked point at t₀ = 0.8.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The affine approximation to a spiral" class="snippet-source" rows="15" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using Calculus
+f(t) = [t*cos(8*π*t), t*sin(8*π*t)]
+
+function myAffineApprox(f, t0)
+    n = length(f(0))
+    df0 = [Calculus.derivative(h -&gt; f(h)[j], t0) for j in 1:n]
+    return h -&gt; f(t0) + h * df0
+end
+
+plot(t -&gt; f(t)[1], t -&gt; f(t)[2], 0, 1, label=&quot;f&quot;, lw=2, aspect_ratio=1)
+
+t0 = .8
+A = myAffineApprox(f, t0)
+plot!(t -&gt; A(t)[1], t -&gt; A(t)[2], -0.1, 0.1, label=&quot;linear approx&quot;, lw=2)
+scatter!([f(t0)[1]], [f(t0)[2]], label=&quot;f(t0)&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-spiral-tangent" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-spiral-tangent" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="polygon-length" aria-labelledby="title-polygon-length">
+  <p class="book-reference">§ 9.4 · p. 253</p>
+  <h4 id="title-polygon-length">The circumference of the unit circle</h4>
+  <p class="snippet-question">Approximate the circle by chords and compare their total length with 2π. Change n to refine the polygon.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The circumference of the unit circle" class="snippet-source" rows="9" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using LinearAlgebra: norm
+
+function myPolygonLength(f;n=1000)
+    t = range(0, 1, n)
+    sum(norm(f(t[j+1]) - f(t[j])) for j in 1:n-1)
+end
+
+g(t) = [sin(2*π*t);cos(2*π*t)]
+myPolygonLength(g), 2*π</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-polygon-length" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-polygon-length" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
   </div>
 </article>
 </section>
