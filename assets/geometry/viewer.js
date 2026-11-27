@@ -34,7 +34,7 @@ export async function createViewer(view) {
   controls.rotateSpeed = 0.8;
   controls.autoRotateSpeed = 0.8;
   controls.saveState();
-  let visible = !view.hidden;
+  let visible = !view.inert;
   let inViewport = true;
   let frame;
   let lastTime;
@@ -95,12 +95,12 @@ export async function createViewer(view) {
     controls.update();
   });
   if (document.fullscreenEnabled) {
-    full.hidden = false;
+    full.disabled = false;
     full.addEventListener("click", async () => {
       try {
         if (document.fullscreenElement) await document.exitFullscreen();
         else await view.requestFullscreen();
-      } catch { full.hidden = true; }
+      } catch { full.disabled = true; }
     });
     document.addEventListener("fullscreenchange", () => {
       full.textContent = document.fullscreenElement === view ? "Exit full screen" : "Full screen";

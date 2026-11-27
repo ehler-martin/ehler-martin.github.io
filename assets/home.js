@@ -18,8 +18,8 @@
   // Equation (15) and Example 3.3 in Ehler & Gröchenig. At each design
   // value the normalized arc-length mean of z² equals 1/3.
   const families = {
-    2: {design: 0.7777999002629707, title: "Tennis-ball curve", word: "two", poster: "sphere.png"},
-    3: {design: 0.7660487581673754, title: "Spherical curve with threefold symmetry", word: "three", poster: "sphere-k3.png"}
+    2: {design: 0.7777999002629707, title: "Tennis-ball curve", poster: "sphere.png"},
+    3: {design: 0.7660487581673754, title: "Spherical curve with threefold symmetry", poster: "sphere-k3.png"}
   };
   const tau = 2 * Math.PI;
   let degree, design, harmonics, stops;
@@ -162,7 +162,7 @@
     lastTime = undefined;
     play.textContent = playing ? "Pause" : "Play";
     play.setAttribute("aria-label", playing ? "Pause parameter animation" : "Play parameter animation");
-    if (ctx && geometryView.hidden && playing && onScreen && !document.hidden) frame = requestAnimationFrame(animate);
+    if (ctx && geometryView.inert && playing && onScreen && !document.hidden) frame = requestAnimationFrame(animate);
   }
   function startAt(a) {
     origin = a;
@@ -183,10 +183,8 @@
     const family = families[k];
     design = family.design;
     const rounded = design.toFixed(4);
-    figure.querySelector("#curve-title").textContent = family.title;
-    figure.querySelector("#design-note sub").textContent = k;
-    figure.querySelector(".design-value").textContent = rounded;
-    figure.querySelector(".degree-word").textContent = family.word;
+    canvas.setAttribute("aria-labelledby", `curve-title-${k}`);
+    slider.setAttribute("aria-describedby", `design-note-${k}`);
     showDesign.textContent = `Show ${k}-design`;
     if (!ctx) {
       poster.src = "assets/" + family.poster;
@@ -228,16 +226,16 @@
     for (const choice of choices.querySelectorAll("button")) {
       choice.setAttribute("aria-pressed", String(choice === button));
     }
-    geometryView.hidden = !geometry;
-    figure.querySelector(".geometry-description").hidden = !geometry;
-    figure.querySelector(".plate-image-area").hidden = geometry;
-    figure.querySelector(".curve-description").hidden = geometry;
-    figure.querySelector(".figure-title").textContent = geometry ? "Geometry" : "Sampling curves";
-    controls.hidden = geometry || !ctx;
+    geometryView.inert = !geometry;
+    figure.querySelector(".curve-view").inert = geometry;
+    const selected = geometry ? "geometry" : button.dataset.degree;
+    for (const caption of figure.querySelectorAll("[data-caption]")) {
+      caption.inert = caption.dataset.caption !== selected;
+    }
     if (geometry && !geometryLoading) {
       geometryLoading = import("./geometry/viewer.js")
         .then(module => module.createViewer(geometryView))
-        .then(viewer => { geometryViewer = viewer; viewer.setVisible(!geometryView.hidden); })
+        .then(viewer => { geometryViewer = viewer; viewer.setVisible(!geometryView.inert); })
         .catch(() => {
           geometryView.querySelector(".geometry-status").textContent =
             "The interactive view is unavailable. You can download the 3D model below.";
