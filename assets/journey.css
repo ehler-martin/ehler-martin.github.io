@@ -1,0 +1,78 @@
+.journey {
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  border: 1px solid var(--line);
+}
+.journey-map {
+  position: relative;
+  display: grid;
+  align-content: center;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1200 / 520;
+  max-height: 28rem;
+  background: #f5f4ed;
+}
+.journey-geography {
+  position: relative;
+  width: 100%;
+}
+.journey-geography img { display: block; width: 100%; height: auto; }
+.journey-routes, .journey-markers { position: absolute; inset: 0; width: 100%; height: 100%; }
+.journey-routes { fill: none; stroke: var(--accent); pointer-events: none; }
+.journey-routes path { stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.journey-point { cursor: pointer; text-decoration: none; }
+.journey-point path { fill: none; stroke: #6a7466; stroke-width: 1; }
+.journey-point circle { fill: var(--paper); stroke: #535b4c; stroke-width: 1.5; }
+.journey-point text {
+  fill: #343e34;
+  stroke: #f5f4ed;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  paint-order: stroke;
+  font: 600 clamp(12px, 1.15vw, 16px)/1 var(--sans);
+}
+.journey-point[aria-current="location"] path { stroke: var(--accent); stroke-width: 2; }
+.journey-point[aria-current="location"] circle {
+  r: 6.5px;
+  fill: var(--accent);
+  stroke: var(--paper);
+  stroke-width: 2.5;
+}
+.journey-point[aria-current="location"] text {
+  fill: var(--accent);
+  font-size: clamp(16px, 1.6vw, 23px);
+  font-weight: 750;
+  stroke-width: 5px;
+}
+.journey-point:hover text,
+.journey-point:focus-visible text { fill: var(--accent); text-decoration: underline; }
+.journey-stages { overflow-x: auto; border-top: 1px solid var(--line); }
+.journey-stages ol {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(max-content, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.journey-stages a {
+  display: block;
+  padding: 0.8rem clamp(0.85rem, 1.7vw, 1.6rem);
+  font: 440 clamp(1.05rem, 1.5vw, 1.35rem)/1.25 var(--serif);
+  text-decoration: none;
+}
+.journey-stages small { display: block; margin-top: 0.25rem; color: var(--muted); font: 0.75rem/1.4 var(--mono); }
+.journey-stages a[aria-current="location"] { background: var(--accent); color: var(--paper); font-weight: 650; }
+.journey-stages a[aria-current="location"] small { color: inherit; }
+.journey-stages a:focus-visible { outline-offset: -3px; }
+.journey-stages a[aria-current="location"]:focus-visible { outline-color: var(--paper); }
+.journey-details { border-top: 1px solid var(--line); }
+.journey-detail { padding: clamp(1rem, 2.5vw, 2rem); }
+.journey-detail + .journey-detail { border-top: 1px solid var(--line); }
+.journey-detail[hidden] + .journey-detail { border-top: 0; }
+.journey-place { color: var(--muted); font: 0.8rem/1.5 var(--mono); }
+.journey-detail h2 {
+  margin: 0.45rem 0;
+  font: 440 clamp(1.5rem, 2.1vw, 2.1rem)/1.12 var(--serif);
+  letter-spacing: -0.025em;
+}
+.journey-detail div > p { max-width: 75ch; color: var(--muted); }

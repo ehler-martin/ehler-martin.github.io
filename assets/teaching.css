@@ -1,0 +1,13 @@
+.page-intro { padding-block: 1.15rem .85rem; gap: .25rem 1rem; }
+.page-intro h1 { font-size: clamp(2.25rem, 3.5vw, 3.5rem); }
+.page-intro p { margin-top: .25rem; font-size: .94rem; max-width: 80ch; }
+.evaluation-terms {
+  columns: 20rem 4;
+  column-gap: clamp(1.25rem, 2.4vw, 2.5rem);
+  padding-bottom: 1rem;
+}
+.evaluation-term { break-inside: avoid; border-top: 1px solid var(--line); padding: .5rem 0 .7rem; }
+.evaluation-term h2 { margin: 0 0 .25rem; font-size: 1.35rem; font-weight: 500; letter-spacing: -.025em; }
+.evaluation-term ul { list-style: none; padding: 0; margin: 0; }
+.course-title { display: block; padding: .3rem 0; font-size: .94rem; line-height: 1.35; text-decoration: none; }
+.report-label { color: var(--muted); font-size: .85rem; white-space: nowrap; }

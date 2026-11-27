@@ -1,0 +1,794 @@
+[
+  {
+    "title": "Optimal asymptotic bounds for design curves on manifolds",
+    "authors": "M. Ehler",
+    "year": 2026,
+    "venue": "arXiv:2611.01895",
+    "url": "https://arxiv.org/abs/2611.01895",
+    "type": "Preprint",
+    "topics": [
+      "geometry"
+    ]
+  },
+  {
+    "title": "Optimal bounds for design curves on the torus",
+    "authors": "M. Ehler",
+    "year": 2026,
+    "venue": "arXiv:2611.03362",
+    "url": "https://arxiv.org/abs/2611.03362",
+    "type": "Preprint",
+    "topics": [
+      "geometry"
+    ]
+  },
+  {
+    "title": "Asymptotically optimal t-design curves on G₂,₄ and SO(3)",
+    "authors": "M. Ehler, C. Karner, P. R. López-Gómez",
+    "year": 2026,
+    "venue": "Preprint",
+    "url": null,
+    "type": "Preprint",
+    "topics": [
+      "geometry"
+    ]
+  },
+  {
+    "title": "Constraints for stable sampling on the sphere",
+    "authors": "M. Ehler, K. Gröchenig",
+    "year": 2026,
+    "venue": "Applied and Computational Harmonic Analysis, 86, 101922 (2027 issue, online 2026)",
+    "url": "https://doi.org/10.1016/j.acha.2026.101922",
+    "type": "Journal article",
+    "topics": [
+      "geometry"
+    ]
+  },
+  {
+    "title": "Hybrid spherical designs",
+    "authors": "M. Ehler",
+    "year": 2026,
+    "venue": "Discrete & Computational Geometry, 76, 2021–2054",
+    "url": "https://doi.org/10.1007/s00454-026-00861-7",
+    "type": "Journal article",
+    "topics": [
+      "geometry"
+    ]
+  },
+  {
+    "title": "Prompt-driven biases in generative pre-trained transformer-generated data: a statistical examination of Zipf and power-law patterns",
+    "authors": "A. Novak, G. Oblakovic, M. Njavro, M. Ehler",
+    "year": 2026,
+    "venue": "Neural Computing and Applications, 38, 280",
+    "url": "https://doi.org/10.1007/s00521-026-12062-7",
+    "type": "Journal article",
+    "topics": [
+      "learning"
+    ]
+  },
+  {
+    "title": "From point sets to curves: t-designs and Marcinkiewicz–Zygmund inequalities on the sphere",
+    "authors": "M. Ehler, K. Gröchenig, C. Karner",
+    "year": 2026,
+    "venue": "Transactions of the American Mathematical Society, Series B, 13, 553–578",
+    "url": "https://doi.org/10.1090/btran/259",
+    "type": "Journal article",
+    "topics": [
+      "geometry",
+      "harmonic"
+    ]
+  },
+  {
+    "title": "Quantitative estimates: How well does the discrete Fourier transform approximate the Fourier transform on ℝ?",
+    "authors": "M. Ehler, K. Gröchenig, A. Klotz",
+    "year": 2026,
+    "venue": "SIAM Review, 68(1), 93–123",
+    "url": "https://doi.org/10.1137/24M1650399",
+    "type": "Journal article",
+    "topics": [
+      "harmonic"
+    ]
+  },
+  {
+    "title": "Aliasing in convnets: A frame-theoretic perspective",
+    "authors": "D. Haider, V. Lostanlen, M. Ehler, N. Holighaus, P. Balazs",
+    "year": 2025,
+    "venue": "arXiv:2507.06152",
+    "url": "https://arxiv.org/abs/2507.06152",
+    "type": "Preprint",
+    "topics": [
+      "harmonic",
+      "learning",
+      "signals"
+    ]
+  },
+  {
+    "title": "Injectivity of ReLU layers: Tools from frame theory",
+    "authors": "D. Haider, M. Ehler, P. Balazs",
+    "year": 2025,
+    "venue": "Mathematical Foundations of Machine Learning, 1, 2",
+    "url": "https://doi.org/10.1007/s44439-025-00003-6",
+    "type": "Journal article",
+    "topics": [
+      "harmonic",
+      "learning"
+    ]
+  },
+  {
+    "title": "Approximation of the short-time Fourier transform",
+    "authors": "M. Dörfler, M. Ehler, K. Gröchenig, A. Klotz",
+    "year": 2025,
+    "venue": "International Conference on Sampling Theory and Applications (SampTA)",
+    "url": "https://doi.org/10.1109/SampTA64769.2025.11133559",
+    "type": "Conference paper",
+    "topics": [
+      "harmonic",
+      "signals"
+    ]
+  },
+  {
+    "title": "Asymptotically optimal t-design curves on the Grassmann manifold",
+    "authors": "M. Ehler, C. Karner, P. R. López-Gómez",
+    "year": 2025,
+    "venue": "International Conference on Sampling Theory and Applications (SampTA)",
+    "url": "https://doi.org/10.1109/SampTA64769.2025.11133543",
+    "type": "Conference paper",
+    "topics": [
+      "geometry"
+    ]
+  },
+  {
+    "title": "Residual hybrid filterbanks",
+    "authors": "V. Lostanlen, X. Zhang, D. Haider, M. Lagrange, M. Ehler, P. Balazs",
+    "year": 2025,
+    "venue": "IEEE Statistical Signal Processing Workshop (SSP), 126–130",
+    "url": "https://doi.org/10.1109/SSP64130.2025.11073345",
+    "type": "Conference paper",
+    "topics": [
+      "signals"
+    ]
+  },
+  {
+    "title": "Invertibility of ReLU-layers: A practical approach",
+    "authors": "H. Eckert, D. Haider, M. Ehler, P. Balazs",
+    "year": 2024,
+    "venue": "International Conference on Neural Computation Theory and Applications (NCTA), 423–429",
+    "url": "https://doi.org/10.5220/0012951300003837",
+    "type": "Conference paper",
+    "topics": [
+      "learning"
+    ]
+  },
+  {
+    "title": "Hold me tight: Stable encoder-decoder design for speech enhancement",
+    "authors": "D. Haider, F. Perfler, V. Lostanlen, M. Ehler, P. Balazs",
+    "year": 2024,
+    "venue": "Interspeech, 5013–5017",
+    "url": "https://doi.org/10.21437/Interspeech.2024-1622",
+    "type": "Conference paper",
+    "topics": [
+      "learning",
+      "signals"
+    ]
+  },
+  {
+    "title": "Instabilities in convnets for raw audio",
+    "authors": "D. Haider, V. Lostanlen, M. Ehler, P. Balazs",
+    "year": 2024,
+    "venue": "IEEE Signal Processing Letters, 31, 1084–1088",
+    "url": "https://doi.org/10.1109/LSP.2024.3386492",
+    "type": "Journal article",
+    "topics": [
+      "learning",
+      "signals"
+    ]
+  },
+  {
+    "title": "visClust: A visual clustering algorithm based on orthogonal projections",
+    "authors": "A. Breger, C. Karner, M. Ehler",
+    "year": 2024,
+    "venue": "Pattern Recognition, 148, 110136",
+    "url": "https://doi.org/10.1016/j.patcog.2023.110136",
+    "type": "Journal article",
+    "topics": [
+      "learning"
+    ]
+  },
+  {
+    "title": "An abstract approach to Marcinkiewicz–Zygmund inequalities for approximation and quadrature in modulation spaces",
+    "authors": "M. Ehler, K. Gröchenig",
+    "year": 2024,
+    "venue": "Mathematics of Computation, 93(350), 2885–2919 (online 2023)",
+    "url": "https://doi.org/10.1090/mcom/3930",
+    "type": "Journal article",
+    "topics": [
+      "geometry",
+      "harmonic"
+    ]
+  },
+  {
+    "title": "Fitting auditory filterbanks with multiresolution neural networks",
+    "authors": "V. Lostanlen, D. Haider, H. Han, M. Lagrange, P. Balazs, M. Ehler",
+    "year": 2023,
+    "venue": "IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA), 1–5",
+    "url": "https://doi.org/10.1109/WASPAA58266.2023.10248131",
+    "type": "Conference paper",
+    "topics": [
+      "learning",
+      "signals"
+    ]
+  },
+  {
+    "title": "Convex geometry of ReLU-layers, injectivity on the ball and local reconstruction",
+    "authors": "D. Haider, M. Ehler, P. Balazs",
+    "year": 2023,
+    "venue": "International Conference on Machine Learning (ICML), PMLR 202, 12339–12350",
+    "url": "https://proceedings.mlr.press/v202/haider23a.html",
+    "type": "Conference paper",
+    "topics": [
+      "geometry",
+      "learning"
+    ]
+  },
+  {
+    "title": "t-design curves and mobile sampling on the sphere",
+    "authors": "M. Ehler, K. Gröchenig",
+    "year": 2023,
+    "venue": "Forum of Mathematics, Sigma, 11, e105",
+    "url": "https://doi.org/10.1017/fms.2023.106",
+    "type": "Journal article",
+    "topics": [
+      "geometry"
+    ]
+  },
+  {
+    "title": "Spectral decomposition of discrepancy kernels on the Euclidean ball, the special orthogonal group, and the Grassmannian manifold",
+    "authors": "J. Dick, M. Ehler, M. Gräf, C. Krattenthaler",
+    "year": 2023,
+    "venue": "Constructive Approximation, 57, 983–1026",
+    "url": "https://doi.org/10.1007/s00365-023-09638-0",
+    "type": "Journal article",
+    "topics": [
+      "geometry",
+      "harmonic"
+    ]
+  },
+  {
+    "title": "Blood vessel segmentation in en-face OCTA images: a frequency based method",
+    "authors": "A. Breger, F. Goldbach, B. S. Gerendas, U. Schmidt-Erfurth, M. Ehler",
+    "year": 2022,
+    "venue": "SPIE Medical Imaging: Computer-Aided Diagnosis, 12033",
+    "url": "https://doi.org/10.1117/12.2611819",
+    "type": "Conference paper",
+    "topics": [
+      "signals"
+    ]
+  },
+  {
+    "title": "Asymptotically optimal cubature formulas on manifolds for prefixed weights",
+    "authors": "M. Ehler, U. Etayo, B. Gariboldi, G. Gigante, T. Peter",
+    "year": 2021,
+    "venue": "Journal of Approximation Theory, 271, 105632",
+    "url": "https://doi.org/10.1016/j.jat.2021.105632",
+    "type": "Journal article"
+  },
+  {
+    "title": "Curve based approximation of measures on manifolds by discrepancy minimization",
+    "authors": "M. Ehler, M. Gräf, S. Neumayer, G. Steidl",
+    "year": 2021,
+    "venue": "Foundations of Computational Mathematics, 21(6), 1595–1642",
+    "url": "https://doi.org/10.1007/s10208-021-09491-2",
+    "type": "Journal article"
+  },
+  {
+    "title": "Orthogonal projections for image quality analyses applied to MRI",
+    "authors": "A. Breger, G. Ramos Llorden, G. Vegas Sanchez-Ferrero, W. S. Hoge, M. Ehler, C.-F. Westin",
+    "year": 2021,
+    "venue": "Proceedings in Applied Mathematics and Mechanics, 20(1), e202000159",
+    "url": "https://doi.org/10.1002/pamm.202000159",
+    "type": "Conference paper"
+  },
+  {
+    "title": "On orthogonal projections for dimension reduction and applications in augmented target loss functions for learning problems",
+    "authors": "A. Breger, J. I. Orlando, P. Harar, M. Dörfler, S. Klimscha, C. Grechenig, B. S. Gerendas, U. Schmidt-Erfurth, M. Ehler",
+    "year": 2020,
+    "venue": "Journal of Mathematical Imaging and Vision, 62, 376–394",
+    "url": "https://doi.org/10.1007/s10851-019-00902-2",
+    "type": "Journal article"
+  },
+  {
+    "title": "Automated quantification of photoreceptor alteration in macular disease using optical coherence tomography and deep learning",
+    "authors": "J. I. Orlando, B. S. Gerendas, S. Riedl, C. Grechenig, A. Breger, M. Ehler, S. M. Waldstein, H. Bogunović, U. Schmidt-Erfurth",
+    "year": 2020,
+    "venue": "Scientific Reports, 10(1), 5619",
+    "url": "https://doi.org/10.1038/s41598-020-62329-9",
+    "type": "Journal article"
+  },
+  {
+    "title": "An amplified-target loss approach for photoreceptor layer segmentation in pathological OCT scans",
+    "authors": "J. I. Orlando, A. Breger, H. Bogunović, S. Riedl, B. S. Gerendas, M. Ehler, U. Schmidt-Erfurth",
+    "year": 2019,
+    "venue": "Ophthalmic Medical Image Analysis (OMIA at MICCAI), 26–34",
+    "url": "https://doi.org/10.1007/978-3-030-32956-3_4",
+    "type": "Conference paper"
+  },
+  {
+    "title": "A randomized multivariate matrix pencil method for superresolution microscopy",
+    "authors": "M. Ehler, S. Kunis, T. Peter, C. Richter",
+    "year": 2019,
+    "venue": "Electronic Transactions on Numerical Analysis, 51, 63–74",
+    "url": "https://doi.org/10.1553/etna_vol51s63",
+    "type": "Journal article"
+  },
+  {
+    "title": "Optimal Monte Carlo integration on closed manifolds",
+    "authors": "M. Ehler, M. Gräf, C. J. Oates",
+    "year": 2019,
+    "venue": "Statistics and Computing, 29(6), 1203–1214",
+    "url": "https://doi.org/10.1007/s11222-019-09894-w",
+    "type": "Journal article"
+  },
+  {
+    "title": "Reproducing kernels for the irreducible components of polynomial spaces on unions of Grassmannians",
+    "authors": "M. Ehler, M. Gräf",
+    "year": 2019,
+    "venue": "Constructive Approximation, 49(1), 29–58",
+    "url": "https://doi.org/10.1007/s00365-018-9443-5",
+    "type": "Journal article"
+  },
+  {
+    "title": "Points on manifolds with asymptotically optimal covering radius",
+    "authors": "A. Breger, M. Ehler, M. Gräf",
+    "year": 2018,
+    "venue": "Journal of Complexity, 48, 1–14",
+    "url": "https://doi.org/10.1016/j.jco.2018.03.002",
+    "type": "Journal article"
+  },
+  {
+    "title": "Metric entropy, n-widths, and sampling of functions on manifolds",
+    "authors": "M. Ehler, F. Filbir",
+    "year": 2018,
+    "venue": "Journal of Approximation Theory, 225, 41–57",
+    "url": "https://doi.org/10.1016/j.jat.2017.09.001",
+    "type": "Journal article"
+  },
+  {
+    "title": "From low- to high-dimensional moments without magic",
+    "authors": "B. G. Bodmann, M. Ehler, M. Gräf",
+    "year": 2018,
+    "venue": "Journal of Theoretical Probability, 31(4), 2167–2193",
+    "url": "https://doi.org/10.1007/s10959-017-0785-x",
+    "type": "Journal article"
+  },
+  {
+    "title": "Supervised learning and dimension reduction techniques for quantification of retinal fluid in optical coherence tomography images",
+    "authors": "A. Breger, M. Ehler, H. Bogunović, S. M. Waldstein, A.-M. Philip, U. Schmidt-Erfurth, B. S. Gerendas",
+    "year": 2017,
+    "venue": "Eye, 31(8), 1212–1220",
+    "url": "https://doi.org/10.1038/eye.2017.61",
+    "type": "Journal article"
+  },
+  {
+    "title": "Optimal configurations of lines and a statistical application",
+    "authors": "F. Bachoc, M. Ehler, M. Gräf",
+    "year": 2017,
+    "venue": "Advances in Computational Mathematics, 43(1), 113–126",
+    "url": "https://doi.org/10.1007/s10444-016-9478-8",
+    "type": "Journal article"
+  },
+  {
+    "title": "Quasi Monte Carlo integration and kernel-based function approximation on Grassmannians",
+    "authors": "A. Breger, M. Ehler, M. Gräf",
+    "year": 2017,
+    "venue": "Frames and Other Bases in Abstract and Function Spaces, 333–353",
+    "url": "https://doi.org/10.1007/978-3-319-55550-8_14",
+    "type": "Book chapter"
+  },
+  {
+    "title": "Numerically optimizing weights for Monte Carlo integration on smooth compact manifolds",
+    "authors": "M. Ehler, M. Gräf",
+    "year": 2017,
+    "venue": "International Symposium on Symbolic and Numeric Algorithms for Scientific Computing (SYNASC), 393–396",
+    "url": "https://doi.org/10.1109/synasc.2017.00071",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Sampling in Grassmannians",
+    "authors": "A. Breger, M. Ehler",
+    "year": 2017,
+    "venue": "International Conference on Sampling Theory and Applications (SampTA), 617–620",
+    "url": "https://doi.org/10.1109/sampta.2017.8024423",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Cubatures on Grassmannians: moments, dimension reduction, and related topics",
+    "authors": "A. Breger, M. Ehler, M. Gräf, T. Peter",
+    "year": 2017,
+    "venue": "Compressed Sensing and its Applications, 235–259",
+    "url": "https://doi.org/10.1007/978-3-319-69802-1_8",
+    "type": "Book chapter"
+  },
+  {
+    "title": "An efficient learning pipeline for quantification of retinal fluid in spectral-domain optical coherence tomography images",
+    "authors": "A. Breger, H. Bogunović, B. S. Gerendas, U. Schmidt-Erfurth, M. Ehler",
+    "year": 2016,
+    "venue": "2nd IMA Conference on the Mathematical Challenges of Big Data, London",
+    "url": "https://ucrisportal.univie.ac.at/en/publications/an-efficient-learning-pipeline-for-quantification-of-retinal-flui/",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Phase retrieval using random cubatures and fusion frames of positive semidefinite matrices",
+    "authors": "M. Ehler, M. Gräf, F. J. Király",
+    "year": 2015,
+    "venue": "Waves, Wavelets and Fractals – Advanced Analysis, 1(1)",
+    "url": "https://doi.org/10.1515/wwfaa-2015-0005",
+    "type": "Journal article"
+  },
+  {
+    "title": "Preconditioning filter bank decomposition using structured normalized tight frames",
+    "authors": "M. Ehler",
+    "year": 2015,
+    "venue": "Journal of Applied Mathematics, 2015, 861563",
+    "url": "https://doi.org/10.1155/2015/861563",
+    "type": "Journal article"
+  },
+  {
+    "title": "Signal reconstruction from the magnitude of subspace components",
+    "authors": "C. Bachoc, M. Ehler",
+    "year": 2015,
+    "venue": "IEEE Transactions on Information Theory, 61(7), 4015–4027",
+    "url": "https://doi.org/10.1109/tit.2015.2429634",
+    "type": "Journal article"
+  },
+  {
+    "title": "Modeling photo-bleaching kinetics to create high resolution maps of rod rhodopsin in the human retina",
+    "authors": "M. Ehler, J. Dobrosotskaya, D. Cunningham, W. T. Wong, E. Y. Chew, W. Czaja, R. F. Bonner",
+    "year": 2015,
+    "venue": "PLOS ONE, 10(7), e0131881",
+    "url": "https://doi.org/10.1371/journal.pone.0131881",
+    "type": "Journal article"
+  },
+  {
+    "title": "Tight and random nonorthogonal fusion frames",
+    "authors": "J. Cahill, P. G. Casazza, M. Ehler, S. Li",
+    "year": 2015,
+    "venue": "Trends in Harmonic Analysis and Its Applications, Contemporary Mathematics 650, 23–36",
+    "url": "https://doi.org/10.1090/conm/650/13042",
+    "type": "Book chapter"
+  },
+  {
+    "title": "Wavelet frames to optimally learn functions on diffusion measure spaces",
+    "authors": "M. Ehler, F. Filbir",
+    "year": 2015,
+    "venue": "Current Trends in Analysis and Its Applications, 9th ISAAC Congress, 715–720",
+    "url": "https://doi.org/10.1007/978-3-319-12577-0_78",
+    "type": "Conference paper"
+  },
+  {
+    "title": "ε-coverings of Hölder-Zygmund type spaces on data-defined manifolds",
+    "authors": "M. Ehler, F. Filbir",
+    "year": 2014,
+    "venue": "Abstract and Applied Analysis, 2014, 1–6",
+    "url": "https://doi.org/10.1155/2014/402918",
+    "type": "Journal article"
+  },
+  {
+    "title": "Quasi-linear compressed sensing",
+    "authors": "M. Ehler, M. Fornasier, J. Sigl",
+    "year": 2014,
+    "venue": "Multiscale Modeling & Simulation, 12(2), 725–754",
+    "url": "https://doi.org/10.1137/130929928",
+    "type": "Journal article"
+  },
+  {
+    "title": "Schroedinger eigenmaps for the analysis of biomedical data",
+    "authors": "W. Czaja, M. Ehler",
+    "year": 2013,
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, 35(5), 1274–1280",
+    "url": "https://doi.org/10.1109/tpami.2012.270",
+    "type": "Journal article"
+  },
+  {
+    "title": "Tight p-fusion frames",
+    "authors": "C. Bachoc, M. Ehler",
+    "year": 2013,
+    "venue": "Applied and Computational Harmonic Analysis, 35(1), 1–15",
+    "url": "https://doi.org/10.1016/j.acha.2012.07.001",
+    "type": "Journal article"
+  },
+  {
+    "title": "Wavelet packets for time-frequency analysis of multispectral imagery",
+    "authors": "J. J. Benedetto, W. Czaja, M. Ehler",
+    "year": 2013,
+    "venue": "GEM – International Journal on Geomathematics, 4(2), 137–154",
+    "url": "https://doi.org/10.1007/s13137-013-0052-y",
+    "type": "Journal article"
+  },
+  {
+    "title": "Modifications of iterative schemes used for curvature correction in noninvasive biomedical imaging",
+    "authors": "M. Ehler",
+    "year": 2013,
+    "venue": "Journal of Biomedical Optics, 18(10), 100503",
+    "url": "https://doi.org/10.1117/1.jbo.18.10.100503",
+    "type": "Journal article"
+  },
+  {
+    "title": "Probabilistic frames: An overview",
+    "authors": "M. Ehler, K. A. Okoudjou",
+    "year": 2013,
+    "venue": "Finite Frames: Theory and Applications, 415–436",
+    "url": "https://doi.org/10.1007/978-0-8176-8373-3_12",
+    "type": "Book chapter"
+  },
+  {
+    "title": "Phase retrieval using time and Fourier magnitude measurements",
+    "authors": "M. Ehler, S. Kunis",
+    "year": 2013,
+    "venue": "International Conference on Sampling Theory and Applications (SampTA), 564–567. Also listed as “Phase retrieval using finitely many nonequispaced Fourier measurements”.",
+    "url": "https://eurasip.org/Proceedings/Ext/SampTA2013/papers/p564-ehler.pdf",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Random tight frames",
+    "authors": "M. Ehler",
+    "year": 2012,
+    "venue": "Journal of Fourier Analysis and Applications, 18(1), 1–20",
+    "url": "https://doi.org/10.1007/s00041-011-9182-5",
+    "type": "Journal article"
+  },
+  {
+    "title": "Minimization of the probabilistic p-frame potential",
+    "authors": "M. Ehler, K. A. Okoudjou",
+    "year": 2012,
+    "venue": "Journal of Statistical Planning and Inference, 142(3), 645–659",
+    "url": "https://doi.org/10.1016/j.jspi.2011.09.001",
+    "type": "Journal article"
+  },
+  {
+    "title": "Locally learning biomedical data using diffusion frames",
+    "authors": "M. Ehler, F. Filbir, H. N. Mhaskar",
+    "year": 2012,
+    "venue": "Journal of Computational Biology, 19(11), 1251–1264",
+    "url": "https://doi.org/10.1089/cmb.2012.0187",
+    "type": "Journal article"
+  },
+  {
+    "title": "Sparse endmember extraction and demixing",
+    "authors": "M. Ehler, M. Hirn",
+    "year": 2012,
+    "venue": "IEEE International Geoscience and Remote Sensing Symposium (IGARSS), 1385–1388",
+    "url": "https://doi.org/10.1109/IGARSS.2012.6351278",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Quantification of retinal chromophores through autofluorescence imaging to identify precursors of age-related macular degeneration",
+    "authors": "M. Ehler, J. Dobrosotskaya, E. J. King, R. F. Bonner",
+    "year": 2013,
+    "venue": "Excursions in Harmonic Analysis, Volume 2, 355–371",
+    "url": "https://doi.org/10.1007/978-0-8176-8379-5_18",
+    "type": "Book chapter"
+  },
+  {
+    "title": "Learning biomedical data locally using diffusion geometry techniques",
+    "authors": "M. Ehler, F. Filbir, H. N. Mhaskar",
+    "year": 2012,
+    "venue": "IASTED Imaging and Signal Processing in Health Care and Technology",
+    "url": "https://doi.org/10.2316/p.2012.771-036",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Shrinkage rules for variational minimization problems and applications to analytical ultracentrifugation",
+    "authors": "M. Ehler",
+    "year": 2011,
+    "venue": "Journal of Inverse and Ill-Posed Problems, 19(4–5), 593–614",
+    "url": "https://doi.org/10.1515/jiip.2011.057",
+    "type": "Journal article"
+  },
+  {
+    "title": "Frame theory in directional statistics",
+    "authors": "M. Ehler, J. Galanis",
+    "year": 2011,
+    "venue": "Statistics & Probability Letters, 81(8), 1046–1051",
+    "url": "https://doi.org/10.1016/j.spl.2011.02.027",
+    "type": "Journal article"
+  },
+  {
+    "title": "Quantitative principal component model for skin chromophore mapping using multispectral images and spatial priors",
+    "authors": "J. M. Kainerstorfer, J. D. Riley, M. Ehler, L. Najafizadeh, F. Amyot, M. Hassan, R. Pursley, S. G. Demos, V. V. Chernomordik, M. Pircher, P. D. Smith, C. K. Hitzenberger, A. H. Gandjbakhche",
+    "year": 2011,
+    "venue": "Biomedical Optics Express, 2(5), 1040–1058",
+    "url": "https://doi.org/10.1364/boe.2.001040",
+    "type": "Journal article"
+  },
+  {
+    "title": "Extended correction model for retinal optical imaging",
+    "authors": "M. Ehler, J. M. Kainerstorfer, D. Cunningham, M. Bono, B. P. Brooks, R. F. Bonner",
+    "year": 2011,
+    "venue": "IEEE International Conference on Computational Advances in Bio and Medical Sciences (ICCABS), 93–98",
+    "url": "https://doi.org/10.1109/iccabs.2011.5729951",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Nonlinear gene cluster analysis with labeling for microarray gene expression data in organ development",
+    "authors": "M. Ehler, V. N. Rajapakse, B. R. Zeeberg, B. P. Brooks, J. D. Brown, W. Czaja, R. F. Bonner",
+    "year": 2011,
+    "venue": "BMC Proceedings, 5(S2), S3",
+    "url": "https://doi.org/10.1186/1753-6561-5-s2-s3",
+    "type": "Conference paper"
+  },
+  {
+    "title": "RedundancyMiner: De-replication of redundant GO categories in microarray and proteomics analysis",
+    "authors": "B. R. Zeeberg, H. Liu, A. B. Kahn, M. Ehler, V. N. Rajapakse, R. F. Bonner, J. D. Brown, B. P. Brooks, V. L. Larionov, W. Reinhold, J. N. Weinstein, Y. G. Pommier",
+    "year": 2011,
+    "venue": "BMC Bioinformatics, 12(1), 52",
+    "url": "https://doi.org/10.1186/1471-2105-12-52",
+    "type": "Journal article"
+  },
+  {
+    "title": "Disorder disguised as order: The science of randomness",
+    "authors": "J. Galanis, M. Ehler",
+    "year": 2011,
+    "venue": "14th Generative Art International Conference, Rome",
+    "url": "https://www.generativeart.com/GA2011_schedule.pdf",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Modeling of the rhodopsin bleaching with variational analysis of retinal images",
+    "authors": "J. Dobrosotskaya, M. Ehler, E. J. King, R. F. Bonner, W. Czaja",
+    "year": 2011,
+    "venue": "SPIE Medical Imaging: Image Processing, 7962, 79624N",
+    "url": "https://doi.org/10.1117/12.878709",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Modeling photo-bleaching kinetics to map local variations in rod rhodopsin density",
+    "authors": "M. Ehler, J. Dobrosotskaya, E. J. King, W. Czaja, R. F. Bonner",
+    "year": 2011,
+    "venue": "SPIE Medical Imaging: Computer-Aided Diagnosis, 7963, 79633R",
+    "url": "https://doi.org/10.1117/12.878421",
+    "type": "Conference paper"
+  },
+  {
+    "title": "The minimal degree of solutions to polynomial equations used for the construction of refinable functions",
+    "authors": "M. Ehler",
+    "year": 2010,
+    "venue": "Sampling Theory in Signal and Image Processing, 9(1–3), 155–165",
+    "url": "https://doi.org/10.1007/bf03549528",
+    "type": "Journal article"
+  },
+  {
+    "title": "The multiresolution structure of pairs of dual wavelet frames for a pair of Sobolev spaces",
+    "authors": "M. Ehler",
+    "year": 2010,
+    "venue": "Jaén Journal on Approximation, 2(2), 193–214",
+    "url": "https://web.ujaen.es/revista/jja/pdf/pre/jja-0002-02-10-3.pdf",
+    "type": "Journal article"
+  },
+  {
+    "title": "The construction of multiwavelet bi-frames and applications to variational image denoising",
+    "authors": "M. Ehler, K. Koch",
+    "year": 2010,
+    "venue": "International Journal of Wavelets, Multiresolution and Information Processing, 8(3), 431–455",
+    "url": "https://doi.org/10.1142/s0219691310003560",
+    "type": "Journal article"
+  },
+  {
+    "title": "Direct curvature correction for noncontact imaging modalities applied to multispectral imaging",
+    "authors": "J. M. Kainerstorfer, F. Amyot, M. Ehler, M. Hassan, S. G. Demos, V. V. Chernomordik, C. K. Hitzenberger, A. H. Gandjbakhche, G. R. Casale",
+    "year": 2010,
+    "venue": "Journal of Biomedical Optics, 15(4), 046013",
+    "url": "https://doi.org/10.1117/1.3470094",
+    "type": "Journal article"
+  },
+  {
+    "title": "Principal component model of multispectral data for near real-time skin chromophore mapping",
+    "authors": "J. M. Kainerstorfer, M. Ehler, F. Amyot, M. Hassan, S. G. Demos, V. V. Chernomordik, C. K. Hitzenberger, A. H. Gandjbakhche, J. D. Riley",
+    "year": 2010,
+    "venue": "Journal of Biomedical Optics, 15(4), 046007",
+    "url": "https://doi.org/10.1117/1.3463010",
+    "type": "Journal article"
+  },
+  {
+    "title": "Analysis of temporal-spatial co-variation within gene expression microarray data in an organogenesis model",
+    "authors": "M. Ehler, V. N. Rajapakse, B. R. Zeeberg, B. P. Brooks, J. D. Brown, W. Czaja, R. F. Bonner",
+    "year": 2010,
+    "venue": "Bioinformatics Research and Applications (ISBRA), 38–49",
+    "url": "https://doi.org/10.1007/978-3-642-13078-6_6",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Directional equilibrium of gene regulatory networks in developmental biology",
+    "authors": "M. Ehler, B. P. Brooks, R. F. Bonner",
+    "year": 2010,
+    "venue": "International Conference on Bioinformatics and Computational Biology (BIOCOMP), 750–754",
+    "url": "https://dblp.org/rec/conf/biocomp/EhlerBB10",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Frame potential classification algorithm for retinal data",
+    "authors": "J. J. Benedetto, W. Czaja, M. Ehler",
+    "year": 2010,
+    "venue": "26th Southern Biomedical Engineering Conference (SBEC), 496–499",
+    "url": "https://doi.org/10.1007/978-3-642-14998-6_127",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Sparse representation and variational methods in retinal image processing",
+    "authors": "J. Dobrosotskaya, M. Ehler, E. J. King, R. F. Bonner, W. Czaja",
+    "year": 2010,
+    "venue": "26th Southern Biomedical Engineering Conference (SBEC), 361–364",
+    "url": "https://doi.org/10.1007/978-3-642-14998-6_92",
+    "type": "Conference paper"
+  },
+  {
+    "title": "High-resolution autofluorescence imaging for mapping molecular processes within the human retina",
+    "authors": "M. Ehler, Z. Majumdar, E. J. King, J. Dobrosotskaya, E. Y. Chew, W. T. Wong, D. Cunningham, W. Czaja, R. F. Bonner",
+    "year": 2010,
+    "venue": "26th Southern Biomedical Engineering Conference (SBEC), 344–347",
+    "url": "https://doi.org/10.1007/978-3-642-14998-6_88",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Wavelet packets for multi- and hyper-spectral imagery",
+    "authors": "J. J. Benedetto, W. Czaja, M. Ehler, C. Flake, M. Hirn",
+    "year": 2010,
+    "venue": "SPIE Wavelet Applications in Industrial Processing VII, 7535, 753508",
+    "url": "https://doi.org/10.1117/12.843039",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Reconstruction-free imaging of Kaposi’s sarcoma using multispectral data",
+    "authors": "J. M. Kainerstorfer, F. Amyot, M. Hassan, M. Ehler, R. Yarchoan, K. M. Wyvill, T. Uldrick, V. V. Chernomordik, C. K. Hitzenberger, A. H. Gandjbakhche, J. D. Riley",
+    "year": 2010,
+    "venue": "Biomedical Optics and 3-D Imaging, BME6",
+    "url": "https://doi.org/10.1364/biomed.2010.bme6",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Nonlinear approximation schemes associated with nonseparable wavelet bi-frames",
+    "authors": "M. Ehler",
+    "year": 2009,
+    "venue": "Journal of Approximation Theory, 161(1), 292–313",
+    "url": "https://doi.org/10.1016/j.jat.2008.09.007",
+    "type": "Journal article"
+  },
+  {
+    "title": "Arbitrary shrinkage rules for approximation schemes with sparsity constraints",
+    "authors": "M. Ehler, S. Geisel",
+    "year": 2009,
+    "venue": "Structured Decompositions and Efficient Algorithms, Dagstuhl Seminar Proceedings 08492, 1–12",
+    "url": "https://doi.org/10.4230/DagSemProc.08492.5",
+    "type": "Conference paper"
+  },
+  {
+    "title": "Wavelet bi-frames with few generators from multivariate refinable functions",
+    "authors": "M. Ehler, B. Han",
+    "year": 2008,
+    "venue": "Applied and Computational Harmonic Analysis, 25(3), 407–414",
+    "url": "https://doi.org/10.1016/j.acha.2008.04.003",
+    "type": "Journal article"
+  },
+  {
+    "title": "Compactly supported multivariate pairs of dual wavelet frames obtained by convolution",
+    "authors": "M. Ehler",
+    "year": 2008,
+    "venue": "International Journal of Wavelets, Multiresolution and Information Processing, 6(2), 183–208",
+    "url": "https://doi.org/10.1142/s0219691308002306",
+    "type": "Journal article"
+  },
+  {
+    "title": "On multivariate compactly supported bi-frames",
+    "authors": "M. Ehler",
+    "year": 2007,
+    "venue": "Journal of Fourier Analysis and Applications, 13(5), 511–532",
+    "url": "https://doi.org/10.1007/s00041-006-6021-1",
+    "type": "Journal article"
+  },
+  {
+    "title": "The Construction of Nonseparable Wavelet Bi-Frames and Associated Approximation Schemes",
+    "authors": "M. Ehler",
+    "year": 2007,
+    "venue": "Logos Verlag Berlin",
+    "url": "https://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=1771&lng=eng",
+    "type": "Monograph"
+  }
+]

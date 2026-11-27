@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mathematics at the University of Vienna. Martin Ehler’s research in computational harmonic analysis, recent papers, academic journey and contact details.">
+  <meta name="theme-color" content="#faf9f5">
+  <title>Martin Ehler | Mathematics, University of Vienna</title>
+  <link rel="icon" type="image/png" href="assets/mark.png">
+  <link rel="stylesheet" href="assets/site.css">
+  
+  <script defer src="assets/home.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Home</a> <a href="academic-journey.html">Academic journey</a> <a href="publications.html">Publications</a>
+        <a href="teaching-evaluations.html">Teaching evaluations</a>
+        <a class="contact-nav" href="#contact">Contact <span class="link-arrow arrow-down" aria-hidden="true"></span></a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="main" tabindex="-1">
+    
+  <section class="home-hero" aria-labelledby="name">
+    <div class="hero-copy">
+      <p class="kicker kicker-line">University of Vienna · Faculty of Mathematics</p>
+      <h1 id="name">Martin Ehler</h1>
+      <p class="role">Associate Professor of Mathematics</p>
+      <p class="intro">I work in computational harmonic analysis, studying how to sample, approximate and reconstruct signals, images and high-dimensional data. How faithfully do the results we compute in finite precision reflect the continuous models we start from?</p>
+      <ul class="focus-list" aria-label="Research interests">
+        <li>Numerical harmonic analysis</li>
+        <li>Mathematical foundations of data science</li>
+        <li>Approximation theory</li>
+      </ul>
+      <p class="profile-note">In Vienna, I’m part of the <a href="https://aha.univie.ac.at/">Applied Harmonic Analysis Cluster</a>. I have served as Vice-Dean for Teaching at the Faculty of Mathematics since 2024.</p>
+    </div>
+    <div class="hero-portrait">
+      <figure>
+        <img src="assets/martin-ehler.jpg" width="756" height="1088" alt="Martin Ehler">
+        <figcaption>© Universität Wien / derknopfdruecker.com</figcaption>
+      </figure>
+      <section class="office-hours" aria-labelledby="office-hours-title">
+        <h2 id="office-hours-title">Office hours</h2>
+        <p>Tuesdays, 16:30–18:00<br>Room 10.128</p>
+      </section>
+    </div>
+    <figure class="home-plate">
+      <div class="figure-top">
+        <span class="figure-title">Sampling curves</span>
+        <div class="curve-choices" role="group" aria-label="Choose a spherical design curve family" hidden>
+          <button type="button" data-degree="2" aria-pressed="true">2-design</button>
+          <button type="button" data-degree="3" aria-pressed="false">3-design</button>
+        </div>
+      </div>
+      <div class="plate-image-area">
+        <img class="sphere-poster" src="assets/sphere.png" width="1024" height="1024" alt="The tennis-ball seam at the spherical 2-design parameter. Its far side is dashed.">
+        <canvas class="spherical-curve" width="1024" height="1024" role="img" aria-labelledby="curve-title" aria-describedby="curve-view" hidden></canvas>
+        <span id="curve-view" hidden>The copper line is solid on the near side of the sphere and dashed on the far side.</span>
+      </div>
+      <div class="curve-controls" hidden>
+        <button type="button" class="play-curve">Play</button>
+        <label for="curve-parameter"><i>a</i> = <span class="parameter-value">0.7778</span></label>
+        <div class="parameter-track">
+          <input type="range" id="curve-parameter" min="0.5" max="1" step="0.0001" value="0.7778" aria-label="Shape parameter a" aria-describedby="design-note">
+        </div>
+        <button type="button" class="show-design">Show 2-design</button>
+      </div>
+      <figcaption class="plate-caption">
+        <div class="caption-heading"><span class="figure-caption-text" id="curve-title">Tennis-ball curve</span>
+          <a class="curve-source" href="https://doi.org/10.1017/fms.2023.106">Ehler &amp; Gröchenig (2023)</a></div>
+        <p id="design-note">At <i>a</i><sub>2</sub> ≈ <span class="design-value">0.7778</span>, arc-length averages along the curve equal spherical averages for every polynomial of degree at most <span class="degree-word">two</span>.</p>
+        <noscript><p><a href="assets/sphere-k3.png">View the spherical 3-design at <i>a</i>₃ ≈ 0.7660</a></p></noscript>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="home-secondary" aria-labelledby="papers-title">
+    <div class="section-head">
+      <h2 id="papers-title">Selected recent publications</h2>
+      <a class="mini-link" href="publications.html">View all <span aria-hidden="true" class="link-arrow"></span></a>
+    </div>
+    <div class="recent-groups">
+      <section aria-labelledby="recent-preprints">
+        <h3 id="recent-preprints">Preprints</h3>
+        <ul class="highlight-list dated-papers">
+          <li>
+            <a class="highlight-paper" href="https://arxiv.org/abs/2611.01895">
+              <span class="date">2026</span>
+              <span><span class="paper-title">Optimal asymptotic bounds for design curves on manifolds</span>
+                <span class="byline">M. Ehler · <i>arXiv:2611.01895</i></span></span>
+              <span aria-hidden="true" class="link-arrow arrow-out"></span>
+            </a>
+          </li>
+          <li>
+            <a class="highlight-paper" href="https://arxiv.org/abs/2611.03362">
+              <span class="date">2026</span>
+              <span><span class="paper-title">Optimal bounds for design curves on the torus</span>
+                <span class="byline">M. Ehler · <i>arXiv:2611.03362</i></span></span>
+              <span aria-hidden="true" class="link-arrow arrow-out"></span>
+            </a>
+          </li>
+          <li>
+            <div class="highlight-paper">
+              <span class="date">2026</span>
+              <span><span class="paper-title">Asymptotically optimal t-design curves on G₂,₄ and SO(3)</span>
+                <span class="byline">M. Ehler, C. Karner, P. R. López-Gómez</span></span>
+            </div>
+          </li>
+          <li>
+            <a class="highlight-paper" href="https://arxiv.org/abs/2507.06152">
+              <span class="date">2025</span>
+              <span><span class="paper-title">Aliasing in convnets: A frame-theoretic perspective</span>
+                <span class="byline">D. Haider, V. Lostanlen, M. Ehler, N. Holighaus, P. Balazs · <i>arXiv:2507.06152</i></span></span>
+              <span aria-hidden="true" class="link-arrow arrow-out"></span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section aria-labelledby="recent-2026">
+        <h3 id="recent-2026">2026 publications</h3>
+        <ul class="highlight-list">
+          <li>
+            <a class="highlight-paper" href="https://doi.org/10.1016/j.acha.2026.101922">
+              <span><span class="paper-title">Constraints for stable sampling on the sphere</span>
+                <span class="byline">M. Ehler, K. Gröchenig · <i>Applied and Computational Harmonic Analysis, 86, 101922 (2027 issue, online 2026)</i></span></span>
+              <span aria-hidden="true" class="link-arrow arrow-out"></span>
+            </a>
+          </li>
+          <li>
+            <a class="highlight-paper" href="https://doi.org/10.1007/s00454-026-00861-7">
+              <span><span class="paper-title">Hybrid spherical designs</span>
+                <span class="byline">M. Ehler · <i>Discrete &amp; Computational Geometry, 76, 2021–2054</i></span></span>
+              <span aria-hidden="true" class="link-arrow arrow-out"></span>
+            </a>
+          </li>
+          <li>
+            <a class="highlight-paper" href="https://doi.org/10.1007/s00521-026-12062-7">
+              <span><span class="paper-title">Prompt-driven biases in generative pre-trained transformer-generated data: a statistical examination of Zipf and power-law patterns</span>
+                <span class="byline">A. Novak, G. Oblakovic, M. Njavro, M. Ehler · <i>Neural Computing and Applications, 38, 280</i></span></span>
+              <span aria-hidden="true" class="link-arrow arrow-out"></span>
+            </a>
+          </li>
+          <li>
+            <a class="highlight-paper" href="https://doi.org/10.1090/btran/259">
+              <span><span class="paper-title">From point sets to curves: t-designs and Marcinkiewicz–Zygmund inequalities on the sphere</span>
+                <span class="byline">M. Ehler, K. Gröchenig, C. Karner · <i>Transactions of the American Mathematical Society, Series B, 13, 553–578</i></span></span>
+              <span aria-hidden="true" class="link-arrow arrow-out"></span>
+            </a>
+          </li>
+          <li>
+            <a class="highlight-paper" href="https://doi.org/10.1137/24M1650399">
+              <span><span class="paper-title">Quantitative estimates: How well does the discrete Fourier transform approximate the Fourier transform on ℝ?</span>
+                <span class="byline">M. Ehler, K. Gröchenig, A. Klotz · <i>SIAM Review, 68(1), 93–123</i></span></span>
+              <span aria-hidden="true" class="link-arrow arrow-out"></span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </section>
+  <section class="contact-block" id="contact" aria-labelledby="contact-title">
+    <div class="contact-identity">
+      <h2 id="contact-title">Contact</h2><a href="mailto:martin.ehler@univie.ac.at">martin.ehler@univie.ac.at</a><br>
+      <a href="tel:+431427750729">+43 1 4277 50729</a><br>
+      <a class="mini-link" href="https://univienna.zoom.us/j/3444855504">Zoom office <span class="link-arrow arrow-out" aria-hidden="true"></span></a>
+    </div>
+    <address class="contact-data"><strong>Faculty of Mathematics</strong>University of Vienna<br>Oskar-Morgenstern-Platz 1<br>1090 Vienna, Austria</address>
+  </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner"><span>© 2026 Martin Ehler</span>
+      <nav class="footer-links" aria-label="University links">
+        <a href="https://mathematik.univie.ac.at/en/">Faculty of Mathematics <span aria-hidden="true" class="link-arrow arrow-out"></span></a>
+        <a href="https://www.univie.ac.at/en/">University of Vienna <span aria-hidden="true" class="link-arrow arrow-out"></span></a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
