@@ -47,12 +47,13 @@
         <p>Tuesdays, 16:30–18:00<br>Room 10.128</p>
       </section>
     </div>
-    <figure class="home-plate">
+    <figure class="home-plate" id="geometry">
       <div class="figure-top">
         <span class="figure-title">Sampling curves</span>
-        <div class="curve-choices" role="group" aria-label="Choose a spherical design curve family" hidden>
+        <div class="curve-choices" role="group" aria-label="Choose a mathematical illustration" hidden>
           <button type="button" data-degree="2" aria-pressed="true">2-design</button>
           <button type="button" data-degree="3" aria-pressed="false">3-design</button>
+          <button type="button" data-view="geometry" aria-pressed="false">Lines &amp; planes</button>
         </div>
       </div>
       <div class="plate-image-area">
@@ -68,11 +69,29 @@
         </div>
         <button type="button" class="show-design">Show 2-design</button>
       </div>
+      <div class="geometry-view" hidden>
+        <div class="geometry-stage">
+          <canvas class="geometry-canvas" tabindex="0" aria-label="Six lines and six planes in 3D" aria-describedby="geometry-help"></canvas>
+          <p class="geometry-status" role="status">Loading the 3D model…</p>
+        </div>
+        <div class="geometry-tools">
+          <button type="button" class="geometry-spin" aria-pressed="false" disabled>Auto-rotate</button>
+          <button type="button" class="geometry-reset" disabled>Reset view</button>
+          <button type="button" class="geometry-fullscreen" hidden>Full screen</button>
+        </div>
+      </div>
       <figcaption class="plate-caption">
-        <div class="caption-heading"><span class="figure-caption-text" id="curve-title">Tennis-ball curve</span>
-          <a class="curve-source" href="https://doi.org/10.1017/fms.2023.106">Ehler &amp; Gröchenig (2023)</a></div>
-        <p id="design-note">At <i>a</i><sub>2</sub> ≈ <span class="design-value">0.7778</span>, arc-length averages along the curve equal spherical averages for every polynomial of degree at most <span class="degree-word">two</span>.</p>
-        <noscript><p><a href="assets/sphere-k3.png">View the spherical 3-design at <i>a</i>₃ ≈ 0.7660</a></p></noscript>
+        <div class="curve-description">
+          <div class="caption-heading"><span class="figure-caption-text" id="curve-title">Tennis-ball curve</span>
+            <a class="curve-source" href="https://doi.org/10.1017/fms.2023.106">Ehler &amp; Gröchenig (2023)</a></div>
+          <p id="design-note">At <i>a</i><sub>2</sub> ≈ <span class="design-value">0.7778</span>, arc-length averages along the curve equal spherical averages for every polynomial of degree at most <span class="degree-word">two</span>.</p>
+          <noscript><p><a href="assets/sphere-k3.png">View the spherical 3-design at <i>a</i>₃ ≈ 0.7660</a></p></noscript>
+        </div>
+        <div class="geometry-description" hidden>
+          <div class="caption-heading"><span class="figure-caption-text">Six lines, six planes</span>
+            <a class="curve-source" href="assets/geometry/six-lines-six-planes.glb" download>Download 3D model</a></div>
+          <p id="geometry-help">Drag to rotate. Scroll or pinch to zoom. Use the arrow keys to rotate and + or − to zoom.</p>
+        </div>
       </figcaption>
     </figure>
   </section>

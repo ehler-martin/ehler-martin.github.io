@@ -8,6 +8,9 @@
   const slider = controls.querySelector("input");
   const readout = controls.querySelector(".parameter-value");
   const choices = figure.querySelector(".curve-choices");
+  const geometryView = figure.querySelector(".geometry-view");
+  let geometryViewer;
+  let geometryLoading;
   const showDesign = controls.querySelector(".show-design");
   const poster = figure.querySelector(".sphere-poster");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -159,7 +162,7 @@
     lastTime = undefined;
     play.textContent = playing ? "Pause" : "Play";
     play.setAttribute("aria-label", playing ? "Pause parameter animation" : "Play parameter animation");
-    if (ctx && playing && onScreen && !document.hidden) frame = requestAnimationFrame(animate);
+    if (ctx && geometryView.hidden && playing && onScreen && !document.hidden) frame = requestAnimationFrame(animate);
   }
   function startAt(a) {
     origin = a;
@@ -185,9 +188,6 @@
     figure.querySelector(".design-value").textContent = rounded;
     figure.querySelector(".degree-word").textContent = family.word;
     showDesign.textContent = `Show ${k}-design`;
-    for (const button of choices.querySelectorAll("button")) {
-      button.setAttribute("aria-pressed", String(Number(button.dataset.degree) === k));
-    }
     if (!ctx) {
       poster.src = "assets/" + family.poster;
       poster.alt = `${family.title} at the spherical ${k}-design parameter, approximately ${rounded}. Its far side is dashed.`;
@@ -223,9 +223,33 @@
     }
   }
 
-  for (const button of choices.querySelectorAll("button")) {
-    button.addEventListener("click", () => chooseFamily(Number(button.dataset.degree)));
+  function selectView(button) {
+    const geometry = button.dataset.view === "geometry";
+    for (const choice of choices.querySelectorAll("button")) {
+      choice.setAttribute("aria-pressed", String(choice === button));
+    }
+    geometryView.hidden = !geometry;
+    figure.querySelector(".geometry-description").hidden = !geometry;
+    figure.querySelector(".plate-image-area").hidden = geometry;
+    figure.querySelector(".curve-description").hidden = geometry;
+    figure.querySelector(".figure-title").textContent = geometry ? "Geometry" : "Sampling curves";
+    controls.hidden = geometry || !ctx;
+    if (geometry && !geometryLoading) {
+      geometryLoading = import("./geometry/viewer.js")
+        .then(module => module.createViewer(geometryView))
+        .then(viewer => { geometryViewer = viewer; viewer.setVisible(!geometryView.hidden); })
+        .catch(() => {
+          geometryView.querySelector(".geometry-status").textContent =
+            "The interactive view is unavailable. You can download the 3D model below.";
+        });
+    }
+    geometryViewer?.setVisible(geometry);
+    if (!geometry) chooseFamily(Number(button.dataset.degree));
+    updatePlayback();
   }
-  chooseFamily(2);
+  for (const button of choices.querySelectorAll("button")) {
+    button.addEventListener("click", () => selectView(button));
+  }
+  selectView(choices.querySelector(location.hash === "#geometry" ? "[data-view=geometry]" : "[data-degree='2']"));
   choices.hidden = false;
 })();
