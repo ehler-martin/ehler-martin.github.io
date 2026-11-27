@@ -1,10 +1,9 @@
-.snippets-page { max-width: 84rem; }
 .snippets-intro { padding: clamp(2.5rem, 5.5vw, 5rem) 0 clamp(2rem, 4vw, 3.5rem); border-bottom: 1px solid var(--line); }
 .snippets-intro h1 { margin: .85rem 0 .8rem; font-size: clamp(3rem, 6.2vw, 5.7rem); letter-spacing: -.058em; }
-.snippets-intro > p:not(.kicker) { max-width: 59ch; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.18rem); }
+.snippets-intro > p:not(.kicker) { max-width: 66ch; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.18rem); }
 .snippets-page code { font: .9em var(--mono); }
 #julia-session-status:not(:empty) { margin-top: .8rem; color: var(--muted); font-size: .94rem; }
-.snippets-layout { display: grid; grid-template-columns: minmax(12rem, .64fr) minmax(0, 2.5fr); column-gap: clamp(2rem, 6vw, 6rem); padding: 2.8rem 0 4rem; }
+.snippets-layout { display: grid; grid-template-columns: clamp(12rem, 16vw, 15rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 3.5vw, 3.5rem); padding: 2.8rem 0 4rem; }
 .snippet-guide { align-self: start; position: sticky; top: 1.6rem; max-width: 28ch; }
 .chapter-menu > summary { cursor: pointer; font: 440 1.4rem/1.2 var(--serif); letter-spacing: -.02em; }
 .snippet-guide nav { display: grid; gap: .45rem; margin: .85rem 0 1.15rem; }
