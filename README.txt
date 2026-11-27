@@ -3,9 +3,9 @@ Local preview · November 2026
 
 OPEN THE SITE
 Extract the entire ZIP, open the martin-ehler-homepage folder, then double-click
-index.html. The homepage, academic journey, bibliography, course list,
-illustrations and fonts work locally. Teaching evaluations are available on the
-university website. Publisher links and university pages open online.
+index.html. The homepage, academic journey, bibliography, teaching evaluation
+reports, illustrations and fonts work locally. Publisher links and university
+pages open online.
 
 EXPLORE
 On the homepage, choose 2-design for the tennis-ball curve or 3-design for
@@ -29,7 +29,8 @@ EDIT
 index.html                 Homepage, selected papers, contact and office hours
 academic-journey.html      Career map, cities and appointment descriptions
 publications.html          Publications page and full list
-teaching-evaluations.html  Courses grouped by semester; link to the university evaluations archive
+teaching-evaluations.html  Course evaluation reports grouped by semester
+files/teaching-evaluations/ University-issued PDF reports
 assets/site.css            Shared colours, fonts, spacing and layout
 assets/home.js             Spherical curve families, projection and parameter controls
 assets/journey.css         Map and city label styles
@@ -56,7 +57,7 @@ Career history, office details and publication sources:
     https://homepage.univie.ac.at/martin.ehler/?page_id=16
     Publisher, proceedings and arXiv records linked from individual works.
 
-The public teaching page links to the university archive:
+Teaching evaluation reports are reproduced from the university archive:
     https://homepage.univie.ac.at/martin.ehler/?page_id=71
 
 Reference for the career map and interactive bibliography:

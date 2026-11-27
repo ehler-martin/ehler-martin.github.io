@@ -9,5 +9,27 @@
 .evaluation-term { break-inside: avoid; border-top: 1px solid var(--line); padding: .5rem 0 .7rem; }
 .evaluation-term h2 { margin: 0 0 .25rem; font-size: 1.35rem; font-weight: 500; letter-spacing: -.025em; }
 .evaluation-term ul { list-style: none; padding: 0; margin: 0; }
-.course-title { display: block; padding: .3rem 0; font-size: .94rem; line-height: 1.35; text-decoration: none; }
+.report-link { display: block; padding: .3rem 0; font-size: .94rem; line-height: 1.35; text-decoration: none; }
+.report-link:hover, .report-link:focus-visible { text-decoration: underline; }
 .report-label { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+.report-dialog {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0;
+  width: min(65rem, 96vw);
+  max-width: 96vw;
+  height: 90vh;
+  height: 90dvh;
+  max-height: 95vh;
+  background: var(--paper);
+  color: var(--ink);
+}
+.report-dialog:not([open]) { display: none; }
+.report-dialog[open] { display: flex; flex-direction: column; }
+.report-dialog::backdrop { background: rgba(27, 35, 28, .55); }
+.report-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem 1rem; padding: .85rem 1rem; }
+.report-toolbar h2 { flex: 1 1 18rem; font-size: 1.35rem; line-height: 1.2; }
+.report-toolbar a, .report-toolbar button { font: 500 .875rem/1.4 var(--sans); }
+.report-toolbar button { border: 1px solid var(--line); border-radius: 3px; padding: .35rem .7rem; background: var(--sage); }
+.report-dialog iframe { width: 100%; flex: 1; min-height: 0; border: 0; border-top: 1px solid var(--line); }
+@media print { .report-dialog { display: none !important; } }
