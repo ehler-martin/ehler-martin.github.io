@@ -5,7 +5,7 @@
   JuliaSession.start().catch(() => {});
 
   const contents = document.querySelector(".chapter-menu");
-  const smallScreen = matchMedia("(max-width: 760px)");
+  const smallScreen = matchMedia("(max-width: 56rem)");
   function sizeContents() { contents.open = !smallScreen.matches; }
   sizeContents();
   smallScreen.addEventListener("change", sizeContents);
