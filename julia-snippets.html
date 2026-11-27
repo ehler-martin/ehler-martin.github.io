@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf9f5">
+  <meta name="description" content="Execute the Julia examples from Part I of Introduction to Mathematics, from prime factorization to floating-point arithmetic.">
+  <title>Julia Snippets · Part I | Martin Ehler</title>
+  <link rel="icon" type="image/png" href="assets/mark.png">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/julia-snippets.css">
+  <script defer src="assets/julia-session.js"></script>
+  <script defer src="assets/julia-primes.js"></script>
+  <script defer src="assets/julia-snippets.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a> <a href="academic-journey.html">Academic journey</a> <a href="publications.html">Publications</a>
+        <a href="teaching-evaluations.html">Teaching evaluations</a>
+        <a href="julia-snippets.html" aria-current="page">Julia Snippets</a>
+        <a class="contact-nav" href="index.html#contact">Contact <span class="link-arrow arrow-down" aria-hidden="true"></span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap snippets-page" tabindex="-1">
+    <header class="snippets-intro">
+      <p class="kicker kicker-line">Part I · Introduction to Mathematics</p>
+      <h1>Julia Snippets</h1>
+      <p>All 32 examples from Part I share one Julia session in this tab. Click <strong>Execute</strong> to run a box. Variables, functions, and packages you define or load are available to every box you run afterward.</p>
+      <div id="julia-session-status" role="status" aria-atomic="true"></div>
+    </header>
+    <div class="snippets-layout">
+      <aside class="snippet-guide">
+        <details class="chapter-menu" open><summary>Contents</summary>
+        <nav aria-label="Chapters and sections"><div class="chapter-links"><a class="chapter-link" href="#language">1. Mathematical Language</a><a href="#proofs">1.1 Proofs</a><a href="#logic">1.2 Logic</a><a href="#sets">1.3 Sets, relations, and functions</a></div><div class="chapter-links"><a class="chapter-link" href="#algebra">2. Algebraic Structures</a><a href="#groups">2.1 Groups</a><a href="#rings">2.2 Rings</a></div><div class="chapter-links"><a class="chapter-link" href="#numbers">3. Numbers</a><a href="#countable">3.1 Countable number systems</a><a href="#complex">3.2 Real and complex numbers</a><a href="#machine">3.3 Machine numbers</a></div></nav></details>
+        <details class="julia-services"><summary>How execution works</summary><p>Opening this page starts Julia on <a href="https://mybinder.org/">Binder</a>. You can click <strong>Execute</strong> while it starts. Boxes run in the order you click them. After editing a definition, execute it again, then rerun any box whose output you want to update. Reloading the page starts fresh. An internet connection is required.</p></details>
+        <noscript><p>Enable JavaScript to execute the examples.</p></noscript>
+      </aside>
+      <div class="snippet-groups"><section class="snippet-chapter" aria-labelledby="language"><p class="chapter-number">Chapter 1</p><h2 id="language">Mathematical Language</h2>
+<section class="book-section" aria-labelledby="proofs"><h3 id="proofs">1.1 Proofs</h3>
+<article class="snippet" data-snippet="factorization" aria-labelledby="title-factorization">
+  <p class="book-reference">§ 1.1 · p. 4</p>
+  <h4 id="title-factorization">Prime factorization</h4>
+  <p class="snippet-question">Which primes divide 24, and how often does each occur? Try another positive integer.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Prime factorization" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off"># import Pkg; Pkg.add(&quot;Primes&quot;)
+using Primes
+factor(24)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-factorization" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-factorization" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="arithmetic-sum" aria-labelledby="title-arithmetic-sum">
+  <p class="book-reference">§ 1.1 · p. 8</p>
+  <h4 id="title-arithmetic-sum">The sum of the first n integers</h4>
+  <p class="snippet-question">Each pair compares the formula n(n + 1)/2 with the sum of the integers from 1 to n.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The sum of the first n integers" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">[(n*(n+1)÷2, sum(k for k=1:n)) for n=1:5]</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-arithmetic-sum" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-arithmetic-sum" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="odd-sum" aria-labelledby="title-odd-sum">
+  <p class="book-reference">§ 1.1 · p. 9</p>
+  <h4 id="title-odd-sum">The sum of the first n odd numbers</h4>
+  <p class="snippet-question">The range 1:5 gives five pairs. The printed output on p. 9 lists all five and labels the vector as having six elements.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The sum of the first n odd numbers" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">[(n^2, sum(2k-1 for k=1:n)) for n=1:5]</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-odd-sum" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-odd-sum" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="geometric-sum" aria-labelledby="title-geometric-sum">
+  <p class="book-reference">§ 1.1 · p. 10</p>
+  <h4 id="title-geometric-sum">A finite geometric sum</h4>
+  <p class="snippet-question">Compare the sum with its closed form. How does the result change if you choose a different ratio?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for A finite geometric sum" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">q = 1/2
+n = 9
+sum(q^k for k = 0:n), (1 - q^(n+1)) / (1 - q)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-geometric-sum" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-geometric-sum" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="logic"><h3 id="logic">1.2 Logic</h3>
+<article class="snippet" data-snippet="boolean" aria-labelledby="title-boolean">
+  <p class="book-reference">§ 1.2 · p. 13</p>
+  <h4 id="title-boolean">Four logical expressions</h4>
+  <p class="snippet-question">Predict each truth value. Execute displays one result per expression, in order.</p>
+  <div class="julia-cell" data-show-each>
+    <textarea aria-label="Julia code for Four logical expressions" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">2&gt;1 &amp;&amp; 5==6
+2&gt;1 || 5==6
+!(2&gt;1)
+!(2&gt;1 &amp;&amp; 5==6)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-boolean" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-boolean" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="sets"><h3 id="sets">1.3 Sets, relations, and functions</h3>
+<article class="snippet" data-snippet="set-operations" aria-labelledby="title-set-operations">
+  <p class="book-reference">§ 1.3 · p. 20</p>
+  <h4 id="title-set-operations">Membership, inclusion, union, and intersection</h4>
+  <p class="snippet-question">Compare the sets before evaluating the six expressions. What happens to a repeated element?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Membership, inclusion, union, and intersection" class="snippet-source" rows="8" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">S1 = Set([1,2,3])
+S2 = Set([2,3])
+S3 = Set([2,2,3])
+S4 = Set([1,6,7])
+println(S1)
+println(S2)
+println(S3)
+1∈S1, 1∈S2, S2⊆S1, S1∪S4, S1∩S4, Set()⊆S2</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-set-operations" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-set-operations" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="equivalence" aria-labelledby="title-equivalence">
+  <p class="book-reference">§ 1.3 · p. 22</p>
+  <h4 id="title-equivalence">Testing an equivalence relation</h4>
+  <p class="snippet-question">Which of the two relations is reflexive, symmetric, and transitive?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Testing an equivalence relation" class="snippet-source" rows="21" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function checkEqRel(R,M)
+    for a ∈ M     # reflexiv
+        if !((a,a) ∈ R) return false end        # ! means not
+    end
+    for (a,b) ∈ R    # symmetric
+        if !((b,a) ∈ R) return false end
+    end
+    for (a,b) ∈ R    # transitive
+        for c ∈ M
+            if (b,c) ∈ R
+                if !((a,c) ∈ R) return false end
+            end
+        end
+    end
+    return true
+end
+
+M = Set([1,2,3,4,5])
+R1 = [(1,1),(2,2),(3,3),(1,2),(2,1),(1,3),(3,1),(2,3),(3,2),(4,4),(5,5)]
+R2 = [(1,1),(2,2),(3,3),(1,2),(1,3),(3,1),(2,3),(3,2),(4,4),(5,5)]
+checkEqRel(R1,M), checkEqRel(R2,M)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-equivalence" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-equivalence" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="graphs" aria-labelledby="title-graphs">
+  <p class="book-reference">§ 1.3 · p. 26</p>
+  <h4 id="title-graphs">A line and a parabola</h4>
+  <p class="snippet-question">Draw the graphs of x ↦ 2x and x ↦ x² on the same axes.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for A line and a parabola" class="snippet-source" rows="5" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">f1(x) = 2*x
+f2(x) = x^2
+using Plots
+plot(f1,label=&quot;f1&quot;)
+plot!(f2,label=&quot;f2&quot;)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-graphs" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-graphs" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="composition" aria-labelledby="title-composition">
+  <p class="book-reference">§ 1.3 · pp. 26–27</p>
+  <h4 id="title-composition">Does composition commute?</h4>
+  <p class="snippet-question">Compare the values of g ∘ f and f ∘ g at the same five inputs.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Does composition commute?" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">f(n) = n^2
+g(n) = 5*n
+
+[g(f(n)) for n=0:4], [f(g(n)) for n=0:4]</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-composition" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-composition" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="pairing" aria-labelledby="title-pairing">
+  <p class="book-reference">§ 1.3 · p. 29</p>
+  <h4 id="title-pairing">Pairing two natural numbers</h4>
+  <p class="snippet-question">Evaluate the pairing function on the nine ordered pairs with coordinates from 0 to 2.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Pairing two natural numbers" class="snippet-source" rows="2" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">f(m,n) = (m+n)*(m+n+1)÷2+m
+[f(m,n) for m=0:2 for n=0:2]</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-pairing" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-pairing" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+</section>
+<section class="snippet-chapter" aria-labelledby="algebra"><p class="chapter-number">Chapter 2</p><h2 id="algebra">Algebraic Structures</h2>
+<section class="book-section" aria-labelledby="groups"><h3 id="groups">2.1 Groups</h3>
+<article class="snippet" data-snippet="matrix-addition" aria-labelledby="title-matrix-addition">
+  <p class="book-reference">§ 2.1 · p. 35</p>
+  <h4 id="title-matrix-addition">Adding matrices</h4>
+  <p class="snippet-question">Add three matrices entry by entry. What role does the zero matrix play?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Adding matrices" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [1 2 3; 4 4 5]
+B = [5 6 6; 2 1 0]
+C = [0 0 0; 0 0 0]
+A + B + C</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-matrix-addition" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-matrix-addition" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="rings"><h3 id="rings">2.2 Rings</h3>
+<article class="snippet" data-snippet="matrix-product" aria-labelledby="title-matrix-product">
+  <p class="book-reference">§ 2.2 · pp. 37–38</p>
+  <h4 id="title-matrix-product">Multiplying rectangular matrices</h4>
+  <p class="snippet-question">Multiply a 2 × 3 matrix by a 3 × 4 matrix and inspect the dimensions of the product.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Multiplying rectangular matrices" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">A = [1 2 1; 2 1 3]
+B = [1 1 0 1; 1 2 0 2; 0 1 1 0]
+A * B</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-matrix-product" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-matrix-product" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="matrix-identity" aria-labelledby="title-matrix-identity">
+  <p class="book-reference">§ 2.2 · p. 38</p>
+  <h4 id="title-matrix-identity">The multiplicative identity</h4>
+  <p class="snippet-question">Julia chooses the size of the identity I to fit the matrix on its left.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The multiplicative identity" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">using LinearAlgebra
+A = [1 2 1; 2 1 3]
+A == A * I        # Julia scales the identity matrix as needed</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-matrix-identity" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-matrix-identity" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="remainder" aria-labelledby="title-remainder">
+  <p class="book-reference">§ 2.2 · p. 40</p>
+  <h4 id="title-remainder">Remainder after division</h4>
+  <p class="snippet-question">What remains after dividing 18 by 4?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Remainder after division" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">18 % 4</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-remainder" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-remainder" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="euclid" aria-labelledby="title-euclid">
+  <p class="book-reference">§ 2.2 · p. 43</p>
+  <h4 id="title-euclid">The Euclidean algorithm</h4>
+  <p class="snippet-question">Follow the successive remainders to find the greatest common divisor of 21 and 14.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The Euclidean algorithm" class="snippet-source" rows="9" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">function mygcd(n0, n1)
+    n0, n1 = abs(n0), abs(n1)
+    while n1 != 0
+        n0, n1 = n1, n0 % n1 # rhs is evaluated and assigned to the lhs
+    end
+    return n0
+end
+
+mygcd(21,14)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-euclid" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-euclid" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+</section>
+<section class="snippet-chapter" aria-labelledby="numbers"><p class="chapter-number">Chapter 3</p><h2 id="numbers">Numbers</h2>
+<section class="book-section" aria-labelledby="countable"><h3 id="countable">3.1 Countable number systems</h3>
+<article class="snippet" data-snippet="int-limit" aria-labelledby="title-int-limit">
+  <p class="book-reference">§ 3.1 · p. 55</p>
+  <h4 id="title-int-limit">The largest signed 64-bit integer</h4>
+  <p class="snippet-question">Compute 2⁶³ − 1 in Julia.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The largest signed 64-bit integer" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">a = 2^63-1</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-int-limit" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-int-limit" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="integer-type" aria-labelledby="title-integer-type">
+  <p class="book-reference">§ 3.1 · p. 55</p>
+  <h4 id="title-integer-type">The type of an integer</h4>
+  <p class="snippet-question">Run the <a href="#title-int-limit">preceding box</a> to define <code>a</code>, then inspect its type here.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The type of an integer" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">typeof(a)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-integer-type" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-integer-type" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="rational-type" aria-labelledby="title-rational-type">
+  <p class="book-reference">§ 3.1 · p. 55</p>
+  <h4 id="title-rational-type">The type of a fraction</h4>
+  <p class="snippet-question">Inspect the type of the exact fraction 2/3.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The type of a fraction" class="snippet-source" rows="2" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">x = 2//3
+typeof(x)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-rational-type" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-rational-type" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="rational-equality" aria-labelledby="title-rational-equality">
+  <p class="book-reference">§ 3.1 · p. 55</p>
+  <h4 id="title-rational-equality">Equality of rational numbers</h4>
+  <p class="snippet-question">Do two different numerator–denominator pairs represent the same rational number?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Equality of rational numbers" class="snippet-source" rows="3" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">a = 2//4
+b = 1//2
+a == b</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-rational-equality" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-rational-equality" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="complex"><h3 id="complex">3.2 Real and complex numbers</h3>
+<article class="snippet" data-snippet="imaginary-unit" aria-labelledby="title-imaginary-unit">
+  <p class="book-reference">§ 3.2 · p. 65</p>
+  <h4 id="title-imaginary-unit">Squaring the imaginary unit</h4>
+  <p class="snippet-question">What is the square of the imaginary unit in Julia?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Squaring the imaginary unit" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">1im^2</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-imaginary-unit" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-imaginary-unit" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="real-part" aria-labelledby="title-real-part">
+  <p class="book-reference">§ 3.2 · p. 65</p>
+  <h4 id="title-real-part">The real part</h4>
+  <p class="snippet-question">Extract the real coordinate of 3 + 2i.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The real part" class="snippet-source" rows="2" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">z = 3+2im
+real(z)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-real-part" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-real-part" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="imaginary-part" aria-labelledby="title-imaginary-part">
+  <p class="book-reference">§ 3.2 · p. 65</p>
+  <h4 id="title-imaginary-part">The imaginary part</h4>
+  <p class="snippet-question">Use the value of <code>z</code> from the <a href="#title-real-part">preceding box</a>.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for The imaginary part" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">imag(z)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-imaginary-part" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-imaginary-part" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="complex-division" aria-labelledby="title-complex-division">
+  <p class="book-reference">§ 3.2 · p. 66</p>
+  <h4 id="title-complex-division">A complex quotient</h4>
+  <p class="snippet-question">Compute (1 + i)/(1 − i) and inspect its real and imaginary parts.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for A complex quotient" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">(1+1im)/(1-1im)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-complex-division" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-complex-division" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="real-quadratic" aria-labelledby="title-real-quadratic">
+  <p class="book-reference">§ 3.2 · p. 67</p>
+  <h4 id="title-real-quadratic">Roots of a quadratic with real coefficients</h4>
+  <p class="snippet-question">Substitute −1 + 2i and −1 − 2i into the polynomial.</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Roots of a quadratic with real coefficients" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">f(z) = z^2+2*z+5
+z1 = -1+2im
+z2 = -1-2im
+f(z1), f(z2)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-real-quadratic" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-real-quadratic" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+<article class="snippet" data-snippet="complex-quadratic" aria-labelledby="title-complex-quadratic">
+  <p class="book-reference">§ 3.2 · p. 67</p>
+  <h4 id="title-complex-quadratic">Roots of a quadratic with complex coefficients</h4>
+  <p class="snippet-question">Do 3i and −i both solve the quadratic equation?</p>
+  <div class="julia-cell">
+    <textarea aria-label="Julia code for Roots of a quadratic with complex coefficients" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">f(z) = z^2-2im*z+3
+z1 = 3im
+z2 = -1im
+f(z1), f(z2)</textarea>
+    <div class="cell-actions"><button type="button" class="execute" aria-controls="out-complex-quadratic" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+    <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-complex-quadratic" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+  </div>
+</article>
+</section>
+<section class="book-section" aria-labelledby="machine"><h3 id="machine">3.3 Machine numbers</h3>
+<section class="snippet-group" aria-labelledby="normal"><h4 id="normal">Normal numbers</h4>
+          <article class="snippet" data-snippet="limits" aria-labelledby="title-limits">
+            <p class="book-reference">Lemma 3.3.7 · p. 72</p>
+            <h5 id="title-limits">The smallest and largest normal numbers</h5>
+            <p class="snippet-question">Compare the exponent bits of the two powers of two with the bit pattern of the largest finite Float64.</p>
+            <div class="julia-cell">
+              <textarea aria-label="Julia code for the smallest and largest normal numbers" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">println(bitstring(2.0^-1022))
+println(bitstring(2.0^-1021))
+R64 = 2.0^1023*(2-2^(-52))    # biggest floating point number 2^1024(1-2^-53)
+println(bitstring(R64))</textarea>
+              <div class="cell-actions"><button type="button" class="execute" aria-controls="out-limits" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+              <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-limits" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+            </div>
+          </article>
+        </section>
+        <section class="snippet-group" aria-labelledby="precision"><h4 id="precision">Machine precision</h4>
+          <article class="snippet" data-snippet="epsilon" aria-labelledby="title-epsilon">
+            <p class="book-reference">Definition 3.3.8 · p. 73</p>
+            <h5 id="title-epsilon">The spacing at one</h5>
+            <p class="snippet-question">How far is 1.0 from the next larger Float64?</p>
+            <div class="julia-cell">
+              <textarea aria-label="Julia code for the spacing at one" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">eps(Float64)</textarea>
+              <div class="cell-actions"><button type="button" class="execute" aria-controls="out-epsilon" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+              <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-epsilon" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+            </div>
+          </article>
+          <article class="snippet" data-snippet="around-five" aria-labelledby="title-around-five">
+            <p class="book-reference">Example 3.3.9 · p. 73</p>
+            <h5 id="title-around-five">The next number after five</h5>
+            <p class="snippet-question">Which of these increments produce the same floating-point number?</p>
+            <div class="julia-cell">
+              <textarea aria-label="Julia code for the next number after five" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">5. == 5+2*eps(), 5. == 5+3*eps(), 5+3*eps() == 5+4*eps()</textarea>
+              <div class="cell-actions"><button type="button" class="execute" aria-controls="out-around-five" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+              <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-around-five" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+            </div>
+          </article>
+          <article class="snippet" data-snippet="integers" aria-labelledby="title-integers">
+            <p class="book-reference">Example 3.3.10 · p. 73</p>
+            <h5 id="title-integers">An integer that Float64 misses</h5>
+            <p class="snippet-question">Does adding one change the stored value at 2<sup>53</sup>?</p>
+            <div class="julia-cell">
+              <textarea aria-label="Julia code for an integer that float64 misses" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">2.0^53+1 == 2.0^53</textarea>
+              <div class="cell-actions"><button type="button" class="execute" aria-controls="out-integers" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+              <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-integers" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+            </div>
+          </article>
+        </section>
+        <section class="snippet-group" aria-labelledby="subnormal"><h4 id="subnormal">Subnormal numbers</h4>
+          <article class="snippet" data-snippet="bits" aria-labelledby="title-bits">
+            <p class="book-reference">Definition 3.3.12 · p. 74</p>
+            <h5 id="title-bits">Bit patterns near zero</h5>
+            <p class="snippet-question">Inspect the first three positive subnormal numbers and the largest one.</p>
+            <div class="julia-cell">
+              <textarea aria-label="Julia code for bit patterns near zero" class="snippet-source" rows="4" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">println(bitstring(2^-1074))    # sign and 11 bits for the exponent are 0
+println(bitstring(2*2^-1074))
+println(bitstring(3*2^-1074))
+println(bitstring((2^52-1)*2^-1074))</textarea>
+              <div class="cell-actions"><button type="button" class="execute" aria-controls="out-bits" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+              <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-bits" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+            </div>
+          </article>
+          <article class="snippet" data-snippet="boundary" aria-labelledby="title-boundary">
+            <p class="book-reference">Example 3.3.13 · p. 74</p>
+            <h5 id="title-boundary">Where normal numbers begin</h5>
+            <p class="snippet-question">Test the smallest and largest positive subnormal numbers, then the smallest positive normal number.</p>
+            <div class="julia-cell">
+              <textarea aria-label="Julia code for where normal numbers begin" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">issubnormal(2^-1074), issubnormal((2^52-1)*2^-1074), issubnormal(2^-1022)</textarea>
+              <div class="cell-actions"><button type="button" class="execute" aria-controls="out-boundary" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+              <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-boundary" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+            </div>
+          </article>
+          <article class="snippet" data-snippet="rounding" aria-labelledby="title-rounding">
+            <p class="book-reference">Example 3.3.15 · p. 74</p>
+            <h5 id="title-rounding">Rounding between subnormal numbers</h5>
+            <p class="snippet-question">The exact product lies halfway between the first two positive subnormal numbers. Which one does Float64 return?</p>
+            <div class="julia-cell">
+              <textarea aria-label="Julia code for rounding between subnormal numbers" class="snippet-source" rows="1" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off">2^-1073 - (1+1/2)*2^-1074 == 0</textarea>
+              <div class="cell-actions"><button type="button" class="execute" aria-controls="out-rounding" disabled>Execute</button><button type="button" class="restore" hidden>Restore original</button></div>
+              <div class="cell-result" hidden><p class="result-label">Output</p><div id="out-rounding" class="snippet-output" role="status" aria-live="polite" aria-atomic="true"></div></div>
+            </div>
+          </article>
+        </section>
+
+</section>
+</section>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><span>© 2026 Martin Ehler</span><a href="#main">Back to top</a></div></footer>
+</body>
+</html>
