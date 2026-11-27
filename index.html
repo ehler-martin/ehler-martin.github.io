@@ -47,32 +47,62 @@
         <p>Tuesdays, 16:30–18:00<br>Room 10.128</p>
       </section>
     </div>
-    <figure class="home-plate">
+    <figure class="home-plate" id="geometry">
       <div class="figure-top">
-        <span class="figure-title">Sampling curves</span>
-        <div class="curve-choices" role="group" aria-label="Choose a spherical design curve family" hidden>
+        <span class="figure-title">
+          <span class="curves-heading">Sampling curves</span>
+          <span class="geometry-heading" inert>Optimal configurations</span>
+        </span>
+        <div class="curve-choices" role="group" aria-label="Choose a mathematical view" hidden>
           <button type="button" data-degree="2" aria-pressed="true">2-design</button>
           <button type="button" data-degree="3" aria-pressed="false">3-design</button>
+          <button type="button" data-view="geometry" aria-pressed="false">Lines &amp; planes</button>
         </div>
       </div>
-      <div class="plate-image-area">
-        <img class="sphere-poster" src="assets/sphere.png" width="1024" height="1024" alt="The tennis-ball seam at the spherical 2-design parameter. Its far side is dashed.">
-        <canvas class="spherical-curve" width="1024" height="1024" role="img" aria-labelledby="curve-title" aria-describedby="curve-view" hidden></canvas>
-        <span id="curve-view" hidden>The copper line is solid on the near side of the sphere and dashed on the far side.</span>
-      </div>
-      <div class="curve-controls" hidden>
-        <button type="button" class="play-curve">Play</button>
-        <label for="curve-parameter"><i>a</i> = <span class="parameter-value">0.7778</span></label>
-        <div class="parameter-track">
-          <input type="range" id="curve-parameter" min="0.5" max="1" step="0.0001" value="0.7778" aria-label="Shape parameter a" aria-describedby="design-note">
+      <div class="figure-views">
+        <div class="curve-view">
+          <div class="plate-image-area">
+            <img class="sphere-poster" src="assets/sphere.png" width="1024" height="1024" alt="The tennis-ball seam at the spherical 2-design parameter. Its far side is dashed.">
+            <canvas class="spherical-curve" width="1024" height="1024" role="img" aria-labelledby="curve-title-2" aria-describedby="curve-view" hidden></canvas>
+            <span id="curve-view" hidden>The copper line is solid on the near side of the sphere and dashed on the far side.</span>
+          </div>
+          <div class="curve-controls" hidden>
+            <button type="button" class="play-curve">Play</button>
+            <label for="curve-parameter"><i>a</i> = <span class="parameter-value">0.7778</span></label>
+            <div class="parameter-track">
+              <input type="range" id="curve-parameter" min="0.5" max="1" step="0.0001" value="0.7778" aria-label="Shape parameter a" aria-describedby="design-note-2">
+            </div>
+            <button type="button" class="show-design">Show 2-design</button>
+          </div>
         </div>
-        <button type="button" class="show-design">Show 2-design</button>
+        <div class="geometry-view" inert>
+          <div class="geometry-stage">
+            <canvas class="geometry-canvas" tabindex="0" aria-label="Six lines and six planes in 3D" aria-describedby="geometry-help" aria-description="Use the arrow keys to rotate and + or − to zoom."></canvas>
+            <span class="geometry-hint" id="geometry-help">Drag to rotate · Scroll or pinch to zoom</span>
+            <p class="geometry-status" role="status">Loading the 3D model…</p>
+          </div>
+          <div class="geometry-tools">
+            <button type="button" class="geometry-spin" disabled>Pause rotation</button>
+          </div>
+        </div>
       </div>
       <figcaption class="plate-caption">
-        <div class="caption-heading"><span class="figure-caption-text" id="curve-title">Tennis-ball curve</span>
-          <a class="curve-source" href="https://doi.org/10.1017/fms.2023.106">Ehler &amp; Gröchenig (2023)</a></div>
-        <p id="design-note">At <i>a</i><sub>2</sub> ≈ <span class="design-value">0.7778</span>, arc-length averages along the curve equal spherical averages for every polynomial of degree at most <span class="degree-word">two</span>.</p>
-        <noscript><p><a href="assets/sphere-k3.png">View the spherical 3-design at <i>a</i>₃ ≈ 0.7660</a></p></noscript>
+        <div data-caption="2">
+          <div class="caption-heading"><span class="figure-caption-text" id="curve-title-2">Tennis-ball curve</span>
+            <a class="curve-source" href="https://doi.org/10.1017/fms.2023.106">Ehler &amp; Gröchenig (2023)</a></div>
+          <p id="design-note-2">At <i>a</i><sub>2</sub> ≈ 0.7778, arc-length averages along the curve equal spherical averages for every polynomial of degree at most two.</p>
+          <noscript><p><a href="assets/sphere-k3.png">View the spherical 3-design at <i>a</i>₃ ≈ 0.7660</a></p></noscript>
+        </div>
+        <div data-caption="3" inert>
+          <div class="caption-heading"><span class="figure-caption-text" id="curve-title-3">Spherical curve with threefold symmetry</span>
+            <a class="curve-source" href="https://doi.org/10.1017/fms.2023.106">Ehler &amp; Gröchenig (2023)</a></div>
+          <p id="design-note-3">At <i>a</i><sub>3</sub> ≈ 0.7660, arc-length averages along the curve equal spherical averages for every polynomial of degree at most three.</p>
+        </div>
+        <div class="geometry-description" data-caption="geometry" inert>
+          <div class="caption-heading"><span class="figure-caption-text">Six lines, six planes</span>
+            <a class="curve-source" href="https://doi.org/10.1007/s00365-018-9443-5" title="Reproducing Kernels for the Irreducible Components of Polynomial Spaces on Unions of Grassmannians, §7.6">Ehler &amp; Gräf (2019)</a></div>
+          <p>Six lines join opposite vertices of a regular icosahedron. Pair each line with its perpendicular plane through the center. Together they form a 3-design with the fewest possible subspaces.</p>
+        </div>
       </figcaption>
     </figure>
   </section>

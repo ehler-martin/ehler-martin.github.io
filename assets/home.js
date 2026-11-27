@@ -8,6 +8,9 @@
   const slider = controls.querySelector("input");
   const readout = controls.querySelector(".parameter-value");
   const choices = figure.querySelector(".curve-choices");
+  const geometryView = figure.querySelector(".geometry-view");
+  let geometryViewer;
+  let geometryLoading;
   const showDesign = controls.querySelector(".show-design");
   const poster = figure.querySelector(".sphere-poster");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -15,8 +18,8 @@
   // Equation (15) and Example 3.3 in Ehler & Gröchenig. At each design
   // value the normalized arc-length mean of z² equals 1/3.
   const families = {
-    2: {design: 0.7777999002629707, title: "Tennis-ball curve", word: "two", poster: "sphere.png"},
-    3: {design: 0.7660487581673754, title: "Spherical curve with threefold symmetry", word: "three", poster: "sphere-k3.png"}
+    2: {design: 0.7777999002629707, title: "Tennis-ball curve", poster: "sphere.png"},
+    3: {design: 0.7660487581673754, title: "Spherical curve with threefold symmetry", poster: "sphere-k3.png"}
   };
   const tau = 2 * Math.PI;
   let degree, design, harmonics, stops;
@@ -159,7 +162,7 @@
     lastTime = undefined;
     play.textContent = playing ? "Pause" : "Play";
     play.setAttribute("aria-label", playing ? "Pause parameter animation" : "Play parameter animation");
-    if (ctx && playing && onScreen && !document.hidden) frame = requestAnimationFrame(animate);
+    if (ctx && geometryView.inert && playing && onScreen && !document.hidden) frame = requestAnimationFrame(animate);
   }
   function startAt(a) {
     origin = a;
@@ -180,14 +183,9 @@
     const family = families[k];
     design = family.design;
     const rounded = design.toFixed(4);
-    figure.querySelector("#curve-title").textContent = family.title;
-    figure.querySelector("#design-note sub").textContent = k;
-    figure.querySelector(".design-value").textContent = rounded;
-    figure.querySelector(".degree-word").textContent = family.word;
+    canvas.setAttribute("aria-labelledby", `curve-title-${k}`);
+    slider.setAttribute("aria-describedby", `design-note-${k}`);
     showDesign.textContent = `Show ${k}-design`;
-    for (const button of choices.querySelectorAll("button")) {
-      button.setAttribute("aria-pressed", String(Number(button.dataset.degree) === k));
-    }
     if (!ctx) {
       poster.src = "assets/" + family.poster;
       poster.alt = `${family.title} at the spherical ${k}-design parameter, approximately ${rounded}. Its far side is dashed.`;
@@ -223,9 +221,35 @@
     }
   }
 
-  for (const button of choices.querySelectorAll("button")) {
-    button.addEventListener("click", () => chooseFamily(Number(button.dataset.degree)));
+  function selectView(button) {
+    const geometry = button.dataset.view === "geometry";
+    for (const choice of choices.querySelectorAll("button")) {
+      choice.setAttribute("aria-pressed", String(choice === button));
+    }
+    geometryView.inert = !geometry;
+    figure.querySelector(".curves-heading").inert = geometry;
+    figure.querySelector(".geometry-heading").inert = !geometry;
+    figure.querySelector(".curve-view").inert = geometry;
+    const selected = geometry ? "geometry" : button.dataset.degree;
+    for (const caption of figure.querySelectorAll("[data-caption]")) {
+      caption.inert = caption.dataset.caption !== selected;
+    }
+    if (geometry && !geometryLoading) {
+      geometryLoading = import("./geometry/viewer.js")
+        .then(module => module.createViewer(geometryView))
+        .then(viewer => { geometryViewer = viewer; viewer.setVisible(!geometryView.inert); })
+        .catch(() => {
+          geometryView.querySelector(".geometry-status").textContent =
+            "The 3D view could not be loaded.";
+        });
+    }
+    geometryViewer?.setVisible(geometry);
+    if (!geometry) chooseFamily(Number(button.dataset.degree));
+    updatePlayback();
   }
-  chooseFamily(2);
+  for (const button of choices.querySelectorAll("button")) {
+    button.addEventListener("click", () => selectView(button));
+  }
+  selectView(choices.querySelector(location.hash === "#geometry" ? "[data-view=geometry]" : "[data-degree='2']"));
   choices.hidden = false;
 })();

@@ -55,14 +55,30 @@ h1,h2,h3{font-family:var(--serif);font-weight:440;line-height:1.08}
 .arrow-out{transform:rotate(-45deg)}
 .arrow-down{transform:rotate(90deg)}
 .highlight-paper .arrow-out{align-self:start;margin-top:5px}
-.home-plate{margin:0;container-type:inline-size;background:#edf0e7;border:1px solid #d6dbcf;border-radius:4px;overflow:hidden}
-.figure-top{padding:15px 20px 0;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.figure-title{font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#4c5c4e}
+.home-plate{--figure-diameter:clamp(245px,21vw,400px);margin:0;container-type:inline-size;background:#edf0e7;border:1px solid #d6dbcf;border-radius:4px;overflow:hidden}
+.figure-top{padding:15px 20px 0;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.figure-title{display:grid;font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#4c5c4e}
+.figure-title>span{grid-area:1/1}
+.figure-title>[inert]{visibility:hidden}
 .curve-choices{border:1px solid #bcc2b6;border-radius:3px;display:inline-flex;padding:2px;align-items:center;background:#f3f4ee}
 .curve-choices button{border:0;background:transparent;color:#515c51;font:500 13px/1 var(--sans);padding:7px 10px;border-radius:2px}
 .curve-choices button[aria-pressed=true]{background:#424e40;color:white}
+/* Stack every alternative in the same grid cell so wrapped captions and controls reserve their space. */
+.figure-views,.plate-caption{display:grid;grid-template-columns:minmax(0,1fr)}
+.figure-views>*,.plate-caption>[data-caption]{grid-area:1/1;min-width:0}
+.figure-views>[inert],.plate-caption>[inert]{visibility:hidden}
+.geometry-stage{position:relative;width:min(calc(100% - 28px),var(--figure-diameter));aspect-ratio:1;margin:4px auto}
+.geometry-canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.geometry-canvas:active{cursor:grabbing}
+.geometry-canvas:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.geometry-status{position:absolute;inset:0;display:grid;place-items:center;padding:18px;text-align:center;background:#edf0e7;color:var(--muted)}
+.geometry-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:2px 14px 13px}
+.geometry-tools button{font:500 13px/1.2 var(--sans);background:#f5f6f0;border:1px solid #b9c0b2;border-radius:3px;padding:6px 9px}
+.geometry-hint{position:absolute;inset:auto 0 0;text-align:center;pointer-events:none;font:12px/1.3 var(--sans);color:#485647}
+.geometry-spin{min-width:9em}
+@container (max-width:24rem){.figure-top{padding-inline:14px}.curve-choices button{padding-inline:8px}}
 .plate-image-area{display:grid;place-items:center;padding:4px 14px}
-.plate-image-area :is(img,canvas){display:block;width:min(100%,clamp(245px,21vw,400px));height:auto;aspect-ratio:1}
+.plate-image-area :is(img,canvas){display:block;width:min(100%,var(--figure-diameter));height:auto;aspect-ratio:1}
 .curve-controls{display:flex;align-items:center;gap:12px;padding:2px 20px 13px;font:500 13px/1.2 var(--sans)}
 .curve-controls button{background:#f5f6f0;border:1px solid #b9c0b2;border-radius:3px;padding:6px 10px;font:inherit;white-space:nowrap}
 .curve-controls button:hover{border-color:#778472}
@@ -120,7 +136,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:440;line-height:1.08}
 @media(max-width:740px){
   .wrap{width:calc(100% - 40px)}.masthead-inner{min-height:66px}.main-nav{flex-wrap:wrap;gap:0 16px}.main-nav a{font-size:13px}.main-nav .contact-nav{padding-left:0;border:0;gap:0}.contact-nav .link-arrow{display:none}
   .home-hero{grid-template-columns:1fr;gap:28px;padding-block:36px}.hero-copy .kicker{margin-bottom:23px}.hero-copy h1{font-size:clamp(2.75rem,15.8vw,5.125rem)}.role{margin-top:8px;font-size:28px}.intro{margin-top:14px;font-size:16px;max-width:55ch}
-  .hero-portrait{width:clamp(196px,42vw,256px);max-width:100%}.home-plate{max-width:100%;width:100%}.plate-image-area :is(img,canvas){width:min(100%,clamp(226px,45vw,300px))}.plate-caption{padding:12px 15px}
+  .hero-portrait{width:clamp(196px,42vw,256px);max-width:100%}.home-plate{--figure-diameter:clamp(226px,45vw,300px);max-width:100%;width:100%}.plate-caption{padding:12px 15px}
   .recent-groups{grid-template-columns:1fr}.focus-list{margin:15px 0}
   .contact-block{grid-template-columns:1fr 1fr;row-gap:24px}.contact-identity{grid-column:1/-1}
   .page-intro{align-items:flex-start}.page-intro .button{font-size:13px;padding:12px}
