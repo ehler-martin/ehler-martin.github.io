@@ -35,15 +35,20 @@ const JuliaSession = (() => {
     return clientLoading;
   }
 
-  function launch(status) {
+  async function launch(status) {
+    const server = await listenForServer(status);
+    if (server) return server;
+    status("Reconnecting to Binder…");
+    const retry = await listenForServer(status);
+    if (retry) return retry;
+    throw new Error("Binder took too long to start. Click Execute to retry.");
+  }
+
+  function listenForServer(status) {
     return new Promise((resolve, reject) => {
       const events = new EventSource(build);
-      let timer;
-      function watchStartup() {
-        clearTimeout(timer);
-        timer = setTimeout(() => finish(null, "Binder stopped responding during startup. Please retry."), 360000);
-      }
-      watchStartup();
+      // A fresh stream can pick up an image that finished building on another Binder server.
+      const timer = setTimeout(() => finish(null), 360000);
       function finish(value, message) {
         clearTimeout(timer);
         events.close();
@@ -53,7 +58,6 @@ const JuliaSession = (() => {
       events.onmessage = event => {
         let data;
         try { data = JSON.parse(event.data); } catch { return; }
-        watchStartup();
         const phase = String(data.phase).toLowerCase();
         if (phase === "building") status("Binder is preparing the book’s Julia packages…");
         if (phase === "launching") status("Binder is starting your Julia notebook server…");
