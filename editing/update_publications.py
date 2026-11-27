@@ -117,11 +117,17 @@ def main():
         preprint = row["type"] == "Preprint"
         heading = "Preprints" if preprint else year
         label = year if preprint else row["type"]
+        overview_link = ""
+        if row.get("overview"):
+            overview = row["overview"]
+            if not re.fullmatch(r"[a-z0-9-]+\.html", overview):
+                raise ValueError(f"Expected a local HTML page for {row['title']}")
+            overview_link = f' · <a href="{overview}">Illustrated overview</a>'
         item = f"""
           <li class="pub-record" data-collaborators="{' '.join(keys)}">
             <h3>{title}</h3>
             <p class="pub-citation"><span class="pub-kind">{escape(label)}</span> ·
-              <span class="pub-byline">{', '.join(byline)}</span> · <span class="pub-venue">{escape(row['venue'])}</span></p>
+              <span class="pub-byline">{', '.join(byline)}</span> · <span class="pub-venue">{escape(row['venue'])}</span>{overview_link}</p>
           </li>"""
         papers_by_heading[heading].append(item)
     groups = []

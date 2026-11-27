@@ -1,0 +1,56 @@
+.paper-wrap{width:min(84rem,calc(100% - clamp(2.5rem,9vw,9rem)));margin-inline:auto}
+.paper-opening{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);gap:clamp(2rem,5.4vw,6rem);align-items:center;padding-block:clamp(2.5rem,5vw,5.5rem)}
+.paper-intro h1{font:450 clamp(2.75rem,4.35vw,4.65rem)/1.035 var(--serif);letter-spacing:-.044em;text-wrap:balance}
+.paper-intro .kicker{margin-bottom:clamp(1.55rem,3vw,3rem)}
+.title-prefix{display:block;font:italic 410 .55em/1.3 var(--serif);letter-spacing:-.021em;color:var(--muted);margin-bottom:.32em}
+.paper-lead{font-size:clamp(1.02rem,1.3vw,1.2rem);line-height:1.55;max-width:48ch;margin-top:1.35rem;color:#414a41}
+.paper-authors{font-size:.98rem;font-weight:600;margin-top:1.65rem}
+.paper-journal{font-size:.93rem;color:var(--muted);margin-top:.2rem}
+.paper-links{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.4rem;margin-top:1.3rem}
+.experiment{--plot-bg:#eff1ea;background:var(--plot-bg);border:1px solid #c8d0c2;border-radius:4px;padding:clamp(1rem,2vw,1.7rem)}
+.experiment-head,.error-figure-head,.window-readout{display:flex;justify-content:space-between;gap:.6rem 1rem;align-items:baseline;flex-wrap:wrap}
+.experiment h2{font-size:clamp(1.65rem,2.1vw,2.15rem);letter-spacing:-.04em}
+.plot-key{display:flex;gap:.75rem;flex-wrap:wrap}
+.plot-key span{display:inline-flex;align-items:center;gap:.32rem;font:500 .78rem var(--sans);color:#414b42}
+.key-line{display:inline-block;border-top:2px solid #3b5548;width:1.25rem}
+.key-dot{width:.48rem;height:.48rem;border-radius:50%;background:#9c452c;display:inline-block}
+.chart-section{border-top:1px solid #cbd2c6;margin-top:.85rem;padding-top:.75rem}
+.chart-section h3{font:520 .92rem var(--sans)}
+.fourier-plot{min-width:0;margin:.25rem 0}
+.fourier-plot svg{width:100%;height:auto;display:block;overflow:visible}
+.fourier-plot text{font:11px var(--sans);fill:#4d5a50}
+.fourier-plot .axis-title{font:11.5px var(--sans);fill:#39453b}
+.fourier-plot .guide{stroke:#cdd3c9;stroke-width:.8}
+.fourier-plot .axis{stroke:#788578;stroke-width:1}
+.fourier-plot .signal{fill:none;stroke:#3b5548;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.fourier-plot .sample{fill:#99462d;stroke:var(--plot-bg,#faf9f5);stroke-width:.85}
+.fourier-plot .interval{fill:#dce3d5}
+.experiment-controls{margin-top:.65rem;padding-top:.85rem;border-top:1px solid #cbd2c6}
+.window-readout{font-weight:550;font-size:.94rem}
+.window-readout output{font:500 .88rem var(--mono);font-variant-numeric:tabular-nums}
+.experiment input[type=range]{display:block;width:100%;height:1.65rem;margin:.2rem 0 .35rem;accent-color:var(--accent);cursor:pointer}
+.preset-row{display:flex;gap:.3rem;flex-wrap:wrap}
+.preset-row button{font:550 .84rem/1.25 var(--sans);background:transparent;border:1px solid #aab6a7;border-radius:2px;padding:.32rem .75rem;color:#354637}
+.preset-row button:hover{border-color:#526451}
+.preset-row button[aria-pressed=true]{background:#455443;color:#fff;border-color:#455443}
+.experiment figcaption,.error-figure figcaption{font-size:.86rem;line-height:1.5;color:var(--muted);margin-top:.75rem}
+.paper-section{border-top:1px solid var(--line);padding-block:clamp(2.2rem,4vw,4.2rem);display:grid;gap:1.5rem clamp(2rem,6vw,6rem)}
+.reading-row{grid-template-columns:minmax(0,.73fr) minmax(0,1.27fr)}
+.paper-section h2{font-size:clamp(2.05rem,3.1vw,3.15rem);letter-spacing:-.047em;max-width:18ch;text-wrap:balance}
+.paper-prose,.result-prose{max-width:70ch}
+.paper-prose p,.result-prose p,.math-note p{line-height:1.65;color:#404941}
+.paper-prose h3{font:450 1.55rem/1.2 var(--serif);margin:1.2rem 0 .4rem;letter-spacing:-.015em}
+.result-row{grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);align-items:center}
+.result-prose p,.math-note p+p{margin-top:.8rem}
+.error-figure{border:1px solid var(--line);border-radius:3px;padding:clamp(1rem,2vw,1.65rem)}
+.error-figure-head h3{font-size:1.6rem;letter-spacing:-.035em}
+.error-figure-head span{font:.77rem var(--mono);color:var(--muted)}
+.error-readout{margin-top:.85rem;padding-top:.75rem;border-top:1px solid var(--line);font-size:.91rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.math-note{border-block:1px solid var(--line);padding:1.25rem 0;margin-bottom:3.5rem}
+.math-note summary{font:500 1.18rem/1.4 var(--serif);cursor:pointer}
+.math-note>div{max-width:72ch;margin:1rem 0 .25rem}
+.math-note .equation{font:1.55rem var(--serif);padding:.55rem 0}
+@media(max-width:900px){.paper-opening{gap:2rem;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}.paper-intro h1{font-size:clamp(2.7rem,5.1vw,3.3rem)}}
+@media(max-width:740px){.paper-opening,.paper-section{grid-template-columns:minmax(0,1fr)}.paper-opening{gap:1.65rem}.paper-intro h1{max-width:23ch}.paper-section h2{max-width:25ch}.paper-intro .kicker{margin-bottom:1.1rem}.experiment{max-width:38rem}.paper-section{gap:1.1rem}.paper-authors{margin-top:1.2rem}}
+@media(max-width:430px){.fourier-plot text{font-size:13.5px}.fourier-plot .axis-title{font-size:13.5px}.paper-wrap{width:calc(100% - 2.25rem)}.paper-intro h1{font-size:2.58rem}.paper-links .button{padding:.75rem .9rem}}
+@media print{.paper-opening,.paper-section{display:block}.experiment,.error-figure{break-inside:avoid;margin:1rem 0}.experiment-controls,.paper-links{display:none}.paper-wrap{width:100%}}
