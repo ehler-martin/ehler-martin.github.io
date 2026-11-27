@@ -2,7 +2,7 @@
 
 const JuliaSession = (() => {
   // Pin the Binder environment containing the book’s packages (see .binder/Project.toml).
-  const build = "https://mybinder.org/build/gh/ehler-martin/ehler-martin.github.io/97ed1128ff70a4925c6015d59b8340d3505d19aa";
+  const build = "https://mybinder.org/build/gh/ehler-martin/ehler-martin.github.io/536fefbeb1919bec116d558b1a99b462b512ef52";
   let session;
   let sessionEnded = false;
   const endedMessage = "This Julia session has ended. Reload the page and execute your definitions again.";

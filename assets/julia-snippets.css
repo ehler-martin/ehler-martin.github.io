@@ -74,4 +74,4 @@
 
 .part-index > summary { cursor: pointer; font-weight: 650; }
 .part-index .chapter-links { margin: .7rem 0 .9rem .65rem; }
-#part-two { margin-top: 4rem; scroll-margin-top: 1.5rem; }
+#part-two, #part-three { margin-top: 4rem; scroll-margin-top: 1.5rem; }
