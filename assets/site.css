@@ -79,7 +79,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:440;line-height:1.08}
 .geometry-status{position:absolute;inset:0;display:grid;place-items:center;padding:18px;text-align:center;background:#edf0e7;color:var(--muted)}
 .geometry-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:2px 14px 13px}
 .geometry-tools button{font:500 13px/1.2 var(--sans);background:#f5f6f0;border:1px solid #b9c0b2;border-radius:3px;padding:6px 9px}
-.geometry-hint{position:absolute;inset:auto 0 0;text-align:center;pointer-events:none;font:12px/1.3 var(--sans);color:#485647}
 .geometry-spin{min-width:9em}
 @container (max-width:24rem){.figure-top{padding-inline:14px}.curve-choices button{padding-inline:8px}}
 .plate-image-area{display:grid;place-items:center;padding:4px 14px}
