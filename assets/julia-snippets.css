@@ -1,5 +1,5 @@
 .snippets-intro { padding: clamp(2.5rem, 5.5vw, 5rem) 0 clamp(2rem, 4vw, 3.5rem); border-bottom: 1px solid var(--line); }
-.snippets-intro h1 { margin: .85rem 0 .8rem; font-size: clamp(3rem, 6.2vw, 5.7rem); letter-spacing: -.058em; }
+.snippets-intro h1 { margin: .85rem 0 .8rem; font-size: var(--page-title-size); letter-spacing: -.058em; }
 .snippets-intro > p:not(.kicker) { max-width: 66ch; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.18rem); }
 .snippets-page code { font: .9em var(--mono); }
 #julia-session-status:not(:empty) { margin-top: .8rem; color: var(--muted); font-size: .94rem; }

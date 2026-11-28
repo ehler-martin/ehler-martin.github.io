@@ -68,7 +68,7 @@ def graph(collaborators, counts):
     <section class="pub-network" id="pub-network" aria-labelledby="pub-network-title" hidden>
       <div class="pub-network-aside">
         <h2 id="pub-network-title">Co-authorship</h2>
-        <p>The diagram shows co-authors with at least {minimum_shared} shared publications. Select a name to see the corresponding works.</p>
+        <p>The diagram shows co-authors with at least {minimum_shared} shared publications.</p>
         <select id="pub-person" aria-label="{menu_title}"><option value="">{menu_title}</option>{''.join(options)}</select>
       </div>
       <div class="pub-graph" style="--rows:{rows}" role="group" aria-label="Co-authors with at least {minimum_shared} shared publications"{'' if ranked_keys else ' hidden'}>
