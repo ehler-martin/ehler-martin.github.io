@@ -36,7 +36,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:440;line-height:1.08}
 .home-hero{display:grid;grid-template-columns:minmax(0,1.12fr) clamp(190px,17vw,272px) minmax(0,1fr);align-items:center;gap:clamp(22px,2.8vw,56px);padding-block:clamp(43px,4.8vw,70px);border-bottom:1px solid var(--line)}
 .hero-copy .kicker{margin-bottom:29px}
 .hero-copy h1{font:525 clamp(3.5rem,6.2vw,6.5rem)/1.02 var(--sans);letter-spacing:-.02em}
-.role{font-size:clamp(25px,2.3vw,35px);font-family:var(--serif);font-style:italic;line-height:1.18;margin-top:14px;letter-spacing:-.035em;color:#535e52}
+.role{font-size:clamp(22px,2.05vw,31px);font-family:var(--serif);font-style:italic;line-height:1.18;margin-top:14px;letter-spacing:-.035em;color:#535e52}
 .intro{font-size:clamp(16px,1.23vw,19px);line-height:1.6;max-width:55ch;color:#424a42;margin-top:22px;text-wrap:pretty}
 .hero-portrait{justify-self:center;width:100%;max-width:272px}
 .hero-portrait img{display:block;width:100%;height:auto;border-radius:3px}
@@ -135,7 +135,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:440;line-height:1.08}
 }
 @media(max-width:740px){
   .wrap{width:calc(100% - 40px)}.masthead-inner{min-height:66px}.main-nav{flex-wrap:wrap;gap:0 16px}.main-nav a{font-size:13px}.main-nav .contact-nav{padding-left:0;border:0;gap:0}.contact-nav .link-arrow{display:none}
-  .home-hero{grid-template-columns:1fr;gap:28px;padding-block:36px}.hero-copy .kicker{margin-bottom:23px}.hero-copy h1{font-size:clamp(2.75rem,15.8vw,5.125rem)}.role{margin-top:8px;font-size:28px}.intro{margin-top:14px;font-size:16px;max-width:55ch}
+  .home-hero{grid-template-columns:1fr;gap:28px;padding-block:36px}.hero-copy .kicker{margin-bottom:23px}.hero-copy h1{font-size:clamp(2.75rem,15.8vw,5.125rem)}.role{margin-top:8px;font-size:25px}.intro{margin-top:14px;font-size:16px;max-width:55ch}
   .hero-portrait{width:clamp(196px,42vw,256px);max-width:100%}.home-plate{--figure-diameter:clamp(226px,45vw,300px);max-width:100%;width:100%}.plate-caption{padding:12px 15px}
   .recent-groups{grid-template-columns:1fr}.focus-list{margin:15px 0}
   .contact-block{grid-template-columns:1fr 1fr;row-gap:24px}.contact-identity{grid-column:1/-1}
