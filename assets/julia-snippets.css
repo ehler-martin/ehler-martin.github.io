@@ -11,8 +11,8 @@
 .snippet-guide p { padding-top: .9rem; border-top: 1px solid var(--line); font-size: .94rem; color: var(--muted); }
 .snippet-group + .snippet-group { margin-top: 3.3rem; }
 .snippet-group > h2 { font-size: clamp(2rem, 3.3vw, 3.1rem); letter-spacing: -.047em; border-bottom: 1px solid var(--line); padding: 0 0 .65rem; }
-.snippet { margin-top: 1.5rem; }
-.snippet + .snippet { margin-top: 2.1rem; }
+.snippet { margin-top: 1rem; }
+.snippet + .snippet { margin-top: 1.5rem; }
 .book-reference { color: var(--muted); font: .79rem/1.4 var(--mono); margin-bottom: .35rem; }
 .snippet h3 { font-size: clamp(1.45rem, 2.1vw, 2rem); letter-spacing: -.025em; }
 .snippet-question { margin: .35rem 0 .75rem; color: var(--muted); }
@@ -57,14 +57,14 @@
 .chapter-links a + a { padding-left: .7rem; font-size: .92rem; }
 .julia-services summary { cursor: pointer; font-size: .94rem; }
 .julia-services p { margin-top: .5rem; }
-.snippet-chapter + .snippet-chapter { margin-top: 4rem; }
+.snippet-chapter + .snippet-chapter { margin-top: 3rem; }
 .chapter-number { color: var(--muted); text-transform: uppercase; font: .79rem/1.4 var(--mono); letter-spacing: .09em; }
-.snippet-chapter > h2 { margin: .35rem 0 1.6rem; font-size: clamp(2.3rem, 4.2vw, 4rem); letter-spacing: -.05em; }
-.book-section + .book-section { margin-top: 3rem; }
-.book-section > h3 { border-bottom: 1px solid var(--line); padding-bottom: .6rem; font-size: clamp(1.65rem, 2.8vw, 2.5rem); }
-.snippet h4, .snippet h5 { margin: 0; font: 440 1.5rem/1.12 var(--serif); font-size: clamp(1.4rem, 2vw, 1.8rem); letter-spacing: -.025em; }
-.snippet-group > h4 { margin: 1.4rem 0 0; font-size: clamp(1.35rem, 2vw, 1.75rem); color: var(--muted); }
-.snippet-group + .snippet-group { margin-top: 2rem; }
+.snippet-chapter > h2 { margin: .25rem 0 1rem; font-size: clamp(1.75rem, 2.8vw, 2.5rem); letter-spacing: -.05em; }
+.book-section + .book-section { margin-top: 2rem; }
+.book-section > h3 { border-bottom: 1px solid var(--line); padding-bottom: .35rem; font-size: clamp(1.4rem, 2vw, 1.8rem); }
+.snippet h4, .snippet h5 { margin: 0; font: 440 clamp(1.125rem, 1.5vw, 1.375rem)/1.18 var(--serif); letter-spacing: -.025em; }
+.snippet-group > h4 { margin: 1rem 0 0; font-size: clamp(1.25rem, 1.8vw, 1.5rem); color: var(--muted); }
+.snippet-group + .snippet-group { margin-top: 1.5rem; }
 .snippet-chapter :is(h2,h3,h4) { scroll-margin-top: 1.5rem; }
 @media (max-width: 56rem) {
   .snippet-guide { max-height: none; max-width: none; overflow: visible; padding-right: 0; }
@@ -74,7 +74,7 @@
 
 .part-index > summary { cursor: pointer; font-weight: 650; }
 .part-index .chapter-links { margin: .7rem 0 .9rem .65rem; }
-#part-two, #part-three { margin-top: 4rem; scroll-margin-top: 1.5rem; }
+#part-two, #part-three { margin-top: 3rem; scroll-margin-top: 1.5rem; }
 
 @media (max-width: 25rem) {
   .part-index .chapter-links { margin-left: 0; }
