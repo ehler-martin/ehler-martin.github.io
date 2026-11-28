@@ -60,7 +60,7 @@ export async function createViewer(view) {
   }
   function setSpin(enabled) {
     controls.autoRotate = enabled;
-    spin.textContent = enabled ? "Pause rotation" : "Resume rotation";
+    spin.textContent = enabled ? "Pause" : "Resume rotation";
     syncAnimation();
   }
   controls.addEventListener("change", render);
